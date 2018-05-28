@@ -1,0 +1,39 @@
+<div class="homeContainer">
+  <img src="/assets/img/logo_live.png" class="icon marbo5" /> <span class="whiteColor"> Retro Msn Alive!</span>
+  <div class="whiteBorderGlassBox">
+    <div class="homeHeadContainer">
+      <div class="row">
+        <div class="col-md-auto">
+          <img src="http://via.placeholder.com/140x140">
+        </div>
+        <div class="col">
+          <b>[̲̅t̲̅][̲̅u̲̅][̲̅k̲̅][̲̅n̲̅]</b> (Conectado) <fa name="caret-down"></fa> <br />
+          < Escribe un mensaje Personal > (Conectado) <fa name="caret-down"></fa>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="whiteContainerPadded marto15">
+    <div class="row">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Buscar un contacto o un número...">
+      </div>
+      <div class="col-md-auto">
+        <img src="/assets/img/logo_live_add.png" class="icon" />
+      </div>
+    </div>
+    <hr />
+    <div class="row">
+      <div class="col-md-12">
+        <fa name="chevron-down"></fa>
+        <b>Amigos ({{users.length}}/{{users.length}})</b>
+      </div>
+      <div class="col-md-12 contact-list-item" routerLink="/conversation/{{u.uid}}" *ngFor="let u of users">
+        <img src="/assets/img/logo_live_online.png" class="status"> <b>{{u.nick}}</b> <i class="msnicon brb"></i>
+      </div>
+      <div class="col-md-12 contact-list-item">
+        <img src="/assets/img/logo_live_offline.png" class="status"> <b>•?((¯°·._.• β€ℓ¥ •._.·°¯))؟•</b> <i class="msnicon cry_smile"></i>
+      </div>
+    </div>
+  </div>
+</div>

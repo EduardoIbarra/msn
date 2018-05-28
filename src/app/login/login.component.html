@@ -1,0 +1,31 @@
+<div class="loginContainer">
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-md-3">
+        <div class="avatarFrameOffline marto15 marbo15">
+          <img src="http://via.placeholder.com/280x280" class="avatarImage img-fluid">
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-md-center">
+      <div class="col-md-6">
+        <div class="center">
+          <h3>Iniciar Sesión</h3>
+        </div>
+        <p>Ingresa con tu cuenta de Facebook o con tu email. No tienes cuenta aún? <a href="">Click Aquí</a></p>
+        <div class="borderedContainer">
+          <input type="email" class="form-control" placeholder="Email" [(ngModel)]="user.email"/> <br />
+          <input type="password" class="form-control" placeholder="Password" [(ngModel)]="user.password"/> <br />
+          <input type="text" class="form-control" placeholder="Nick" [(ngModel)]="user.nick"/>
+          <input type="checkbox"> Recordarme<br />
+          <input type="checkbox"> Recordarme mi Contraseña<br />
+          <input type="checkbox"> Ingresar Automáticamente<br />
+          <a href="">Olvidaste tu contraseña?</a>
+        </div>
+        <div class="center">
+          <button class="grayButton" (click)="go()">Listo</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
