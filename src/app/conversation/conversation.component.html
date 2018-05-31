@@ -4,7 +4,7 @@
     <div class="item">Archivos</div>
   </div>
   <div class="row">
-    <div class="col-sm-3">
+    <div class="col-sm-3 maxwi300">
       <div id="conversationSidebar">
         <div class="vh30">
           <div class="avatarFrameOnline">
@@ -20,26 +20,23 @@
       </div>
     </div>
     <div class="col-sm-9">
-      <div class="vh70">
-        <span class="friendName">уυℓι</span> (Conectada)
+      <div class="vh70 overscroll pabo10" id="messageArea">
+        <span class="friendName">{{friend.nick}}</span> (Conectada)
         <hr />
-        <div class="messageGroup">
-          уυℓι dice: <br />
-          <ul>
-            <li>Hola</li>
-            <li>Mochoo</li>
-          </ul>
-        </div>
-        <div class="messageGroup">
-          [̲̅t̲̅][̲̅u̲̅][̲̅k̲̅][̲̅n̲̅] dice: <br />
-          <ul>
-            <li>Hola</li>
-            <li>Mocha</li>
-          </ul>
+        <div class="messageGroup" *ngFor="let m of conversation">
+          <div *ngIf="m.type == 'text'">
+            {{getUserNickById(m.sender)}} dice: <br />
+            <ul>
+              <li>{{m.content}}</li>
+            </ul>
+          </div>
+          <div *ngIf="m.type == 'zumbido'">
+            {{getUserNickById(m.sender)}} envió un zumbido <br />
+          </div>
         </div>
       </div>
       <div class="vh20">
-        <textarea class="form-control" cols="30" rows="5"></textarea>
+        <textarea class="form-control" cols="30" rows="5" (keyup.enter)="sendMessage()" [(ngModel)]="form.message"></textarea>
         <div id="messageToolBar">
           <div class="item">
             <img src="/assets/img/icons/regular_smile.gif" class="tool">

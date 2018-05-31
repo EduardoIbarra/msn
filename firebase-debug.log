@@ -1,0 +1,37 @@
+[debug] [2018-05-31T22:33:11.797Z] ----------------------------------------------------------------------
+[debug] [2018-05-31T22:33:11.801Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2018-05-31T22:33:11.801Z] CLI Version:   3.17.7
+[debug] [2018-05-31T22:33:11.801Z] Platform:      darwin
+[debug] [2018-05-31T22:33:11.801Z] Node Version:  v9.9.0
+[debug] [2018-05-31T22:33:11.803Z] Time:          Thu May 31 2018 17:33:11 GMT-0500 (CDT)
+[debug] [2018-05-31T22:33:11.803Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-05-31T22:33:11.822Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-05-31T22:33:11.822Z] > authorizing via signed-in user
+[debug] [2018-05-31T22:33:11.826Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/msnp-fdd0e  
+  
+ Thu May 31 2018 17:33:11 GMT-0500 (CDT)
+[debug] [2018-05-31T22:33:12.265Z] <<< HTTP RESPONSE 200
+[debug] [2018-05-31T22:33:12.267Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/msnp-fdd0e/tokens  
+  
+ Thu May 31 2018 17:33:12 GMT-0500 (CDT)
+[debug] [2018-05-31T22:33:12.857Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'msnp-fdd0e'...
+[info] 
+[info] i  deploying database, hosting
+[info] i  database: checking rules syntax...
+[debug] [2018-05-31T22:33:13.119Z] >>> HTTP REQUEST PUT https://msnp-fdd0e.firebaseio.com/.settings/rules.json?dryRun=true  
+ {
+  "rules": {
+    ".read": "auth != null",
+    ".write": "auth != null"
+  }
+} 
+ Thu May 31 2018 17:33:13 GMT-0500 (CDT)
+[debug] [2018-05-31T22:33:13.349Z] <<< HTTP RESPONSE 200
+[info] ✔  database: rules syntax for database msnp-fdd0e is valid
+[info] i  hosting: preparing dist/msn directory for upload...
+[debug] [2018-05-31T22:33:13.557Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/msnp-fdd0e/uploads/-LDsKL4vMhCeJYgyPc97?fileCount=93&message=  
+  
+ Thu May 31 2018 17:33:13 GMT-0500 (CDT)

@@ -14,6 +14,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { ConversationComponent } from './conversation/conversation.component';
 
 const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'conversation/:uid', component: ConversationComponent },
   { path: 'home', component: HomeComponent }

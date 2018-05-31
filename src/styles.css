@@ -109,3 +109,15 @@ img.icon {
   background: linear-gradient(to bottom, #f7f7f7 0%,#eaeaea 50%,#e5e5e5 51%,#bab6b6 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#bab6b6',GradientType=0 ); /* IE6-9 */
 }
+.overscroll {
+  overflow: scroll;
+}
+.pabo10 {
+  padding-bottom: 10px;
+}
+.maxwi200 {
+  max-width: 200px !important;
+}
+.maxwi300 {
+  max-width: 300px !important;
+}
