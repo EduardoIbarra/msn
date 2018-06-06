@@ -7,8 +7,24 @@
           <img src="http://via.placeholder.com/140x140">
         </div>
         <div class="col">
-          <b>[̲̅t̲̅][̲̅u̲̅][̲̅k̲̅][̲̅n̲̅]</b> (Conectado) <fa name="caret-down"></fa> <br />
-          < Escribe un mensaje Personal > (Conectado) <fa name="caret-down"></fa>
+          <b>{{me.nick}}</b>
+          <div ngbDropdown class="d-inline-block">
+            <button class="btn btn-link" id="dropdownBasic1" ngbDropdownToggle>{{me.status}}</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button class="dropdown-item" (click)="setUserProperty('status', 'online')">Conectado</button>
+              <button class="dropdown-item" (click)="setUserProperty('status', 'away')">Ausente</button>
+              <button class="dropdown-item" (click)="setUserProperty('status', 'busy')">Ocupado</button>
+              <button class="dropdown-item" (click)="setUserProperty('status', 'appear_offline')">Desconectado</button>
+              <div class="dropdown-divider"></div>
+              <button routerLink="/login" class="dropdown-item">Cerrar Sesión</button>
+            </div>
+          </div>
+          <br />
+          <span (click)="startEditingSubnick()" *ngIf="!editingSubnick && !me.subnick">< Escribe un mensaje Personal ></span>
+          <span (click)="startEditingSubnick()" *ngIf="!editingSubnick && me.subnick">{{me.subnick}}</span>
+          <span *ngIf="editingSubnick">
+            <input id="subnickTxt" type="text" (keyup.enter)="setSubnick()" [(ngModel)]="me.subnick" autofocus>
+          </span>
         </div>
       </div>
     </div>
@@ -19,7 +35,7 @@
         <input type="text" class="form-control" placeholder="Buscar un contacto o un número...">
       </div>
       <div class="col-md-auto">
-        <img src="/assets/img/logo_live_add.png" class="icon" />
+        <img src="/assets/img/logo_live_add.png" class="icon" (click)="open(content)"  />
       </div>
     </div>
     <hr />
@@ -29,11 +45,29 @@
         <b>Amigos ({{users.length}}/{{users.length}})</b>
       </div>
       <div class="col-md-12 contact-list-item" routerLink="/conversation/{{u.uid}}" *ngFor="let u of users">
-        <img src="/assets/img/logo_live_online.png" class="status"> <b>{{u.nick}}</b> <i class="msnicon brb"></i>
-      </div>
-      <div class="col-md-12 contact-list-item">
-        <img src="/assets/img/logo_live_offline.png" class="status"> <b>•?((¯°·._.• β€ℓ¥ •._.·°¯))؟•</b> <i class="msnicon cry_smile"></i>
+        <img src="/assets/img/logo_live_{{u.status || 'offline'}}.png" class="status">
+        <b>{{u.nick}}</b> <i class="msnicon brb"></i>
+        <small *ngIf="u.subnick">{{u.subnick}}</small>
       </div>
     </div>
   </div>
 </div>
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h3>Agregar Amigo</h3>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-9">
+        <input class="form-control" type="email" placeholder="Ingresar Email" [(ngModel)]="requestEmail" (keyup.enter)="sendRequest()">
+      </div>
+      <div class="col">
+        <a class="btn btn-primary btn-block" (click)="sendRequest()">Enviar</a>
+      </div>
+    </div>
+  </div>
+</ng-template>

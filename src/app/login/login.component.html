@@ -12,18 +12,19 @@
         <div class="center">
           <h3>Iniciar Sesión</h3>
         </div>
-        <p>Ingresa con tu cuenta de Facebook o con tu email. No tienes cuenta aún? <a href="">Click Aquí</a></p>
+        <p>Ingresa con tu cuenta de Facebook o con tu email. No tienes cuenta aún? <b><a (click)="operation = 'register'">Click Aquí</a></b></p>
         <div class="borderedContainer">
           <input type="email" class="form-control" placeholder="Email" [(ngModel)]="user.email"/> <br />
           <input type="password" class="form-control" placeholder="Password" [(ngModel)]="user.password"/> <br />
-          <input type="text" class="form-control" placeholder="Nick" [(ngModel)]="user.nick"/>
+          <input *ngIf="operation === 'register'" type="text" class="form-control" placeholder="Nick" [(ngModel)]="user.nick"/>
           <input type="checkbox"> Recordarme<br />
           <input type="checkbox"> Recordarme mi Contraseña<br />
           <input type="checkbox"> Ingresar Automáticamente<br />
           <a href="">Olvidaste tu contraseña?</a>
         </div>
         <div class="center">
-          <button class="grayButton" (click)="go()">Listo</button>
+          <button *ngIf="operation === 'login'" class="grayButton" (click)="go()">Login</button>
+          <button *ngIf="operation === 'register'" class="grayButton" (click)="go2()">Registrarme</button>
         </div>
       </div>
     </div>

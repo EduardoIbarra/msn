@@ -15,7 +15,6 @@ export class UserService {
     return this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
   }
   createUser(user) {
-    console.log(user);
     return this.afDb.object('users/' + user.uid).set(user);
   }
   getUsers() {
@@ -23,5 +22,8 @@ export class UserService {
   }
   getUser(uid) {
     return this.afDb.object('users/' + uid);
+  }
+  setUserProperty(key, value, uid) {
+   return this.afDb.object('users/' + uid + '/' + key).set(value);
   }
 }

@@ -3,7 +3,7 @@
     <div class="item" routerLink="/home"><img src="assets/img/logo_live.png"></div>
     <div class="item">Archivos</div>
   </div>
-  <div class="row">
+  <div class="row" [ngClass]="{'shaker': shake}">
     <div class="col-sm-3 maxwi300">
       <div id="conversationSidebar">
         <div class="vh30">

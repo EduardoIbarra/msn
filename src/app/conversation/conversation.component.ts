@@ -13,8 +13,9 @@ export class ConversationComponent implements OnInit {
   form: any = {message: ''};
   friendId: any = null;
   me: any = {};
-  conversation: any = {};
+  conversation: any = [];
   ids: any = [];
+  shake = false;
   constructor(private activatedRoute: ActivatedRoute, private userService: UserService,
               private conversationService: ConversationService) {
     this.me = JSON.parse(localStorage.getItem('msn_user'));
@@ -24,6 +25,9 @@ export class ConversationComponent implements OnInit {
       this.friend = user;
       this.conversationService.getConversation(this.ids.join('||')).valueChanges()
         .subscribe((result) => {
+          if (!result) {
+            return;
+          }
           this.conversation = Object.keys(result).map(function (key) { return result[key]; });
           this.conversation.forEach((m: any) => {
             if (!m.seen && m.sender !== this.me.details.user.uid) {
@@ -39,7 +43,9 @@ export class ConversationComponent implements OnInit {
           });
           window.setTimeout(() => {
             const objDiv = document.getElementById('messageArea');
-            objDiv.scrollTop = objDiv.scrollHeight;
+            if(objDiv) {
+              objDiv.scrollTop = objDiv.scrollHeight;
+            }
           }, 1);
         });
     });
@@ -57,6 +63,10 @@ export class ConversationComponent implements OnInit {
   doZumbido() {
     const audio = new Audio('assets/sound/zumbido.m4a');
     audio.play();
+    this.shake = true;
+    window.setTimeout(() => {
+      this.shake = false;
+    }, 800);
   }
   sendZumbido() {
     this.doZumbido();
