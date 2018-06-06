@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
       this.users = result;
     });
     this.me = JSON.parse(localStorage.getItem('msn_user'));
-    this.usersService.getUser(this.me.details.user.uid).valueChanges().subscribe((result) => {
+    this.usersService.getUser(this.me.details.user.uid).valueChanges().subscribe((result: any) => {
       this.me = result;
       this.me.friends = Object.keys(this.me.friends).map(function (key) { return result.friends[key]; });
       this.me.friends.forEach((f, i) => {
