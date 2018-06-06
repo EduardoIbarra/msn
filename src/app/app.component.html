@@ -1,1 +1,19 @@
 <router-outlet></router-outlet>
+<ng-template #request let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h3>Agregar Amigo</h3>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>
+      Deseas agregar a esta persona a messenger?<br />
+      <input type="radio" [(ngModel)]="shouldAdd" name="addToMsn" value="Yes" id="yes-add">
+      <label for="yes-add"><b>Sí.</b> Los contactos de Messenger forman parte de tu red</label>
+      <br />
+      <input type="radio" [(ngModel)]="shouldAdd" name="addToMsn" value="No" id="no-add">
+      <label for="no-add"><b>No, gracias.</b> No te preocupes, no le diremos a nadie que dijiste que no.</label>
+    </p>
+  </div>
+</ng-template>

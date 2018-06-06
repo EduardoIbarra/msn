@@ -26,4 +26,8 @@ export class UserService {
   setUserProperty(key, value, uid) {
    return this.afDb.object('users/' + uid + '/' + key).set(value);
   }
+  addFriend(uid, friendId) {
+    return this.afDb.object('users/' + uid + '/friends/' + friendId).set(friendId);
+    return this.afDb.object('users/' + friendId + '/friends/' + uid).set(uid);
+  }
 }

@@ -1,0 +1,30 @@
+<div class="modal-dialog modal-lg">
+  <div class="modal-content bluewhitebluebg">
+    <div class="modal-header bgWhite">
+      Nueva Solicitud de Amistad
+      <a class="closeButton" (click)="close()">&times;</a>
+    </div>
+    <div class="modal-body" style="height: auto;">
+      <div class="row">
+        <div class="col-md-auto">
+          <img src="http://via.placeholder.com/100x100">
+        </div>
+        <div class="col-md">
+          <b>{{currentRequest.sender.email}}</b><br />
+          <small>{{currentRequest.sender.nick}}</small>
+        </div>
+      </div>
+      <hr />
+      Deseas agregar a esta persona a messenger?<br />
+      <input type="radio" [(ngModel)]="shouldAdd" name="addToMsn" value="yes" id="yes-add">
+      <label for="yes-add"> <b>Sí.</b> Los contactos de Messenger forman parte de tu red</label>
+      <br />
+      <input type="radio" [(ngModel)]="shouldAdd" name="addToMsn" value="no" id="no-add">
+      <label for="no-add"> <b>No, gracias.</b> No te preocupes, no le diremos a nadie que dijiste que no.</label>
+    </div>
+    <div class="modal-footer">
+      <button class="grayButton" (click)="accept()" autofocus>Aceptar</button>
+      <button class="grayButton" (click)="decline()">Decidir más Tarde</button>
+    </div>
+  </div>
+</div>

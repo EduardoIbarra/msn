@@ -28,6 +28,7 @@
     "firebase": "^5.0.4",
     "font-awesome": "^4.7.0",
     "ins": "0.0.0",
+    "ng2-bootstrap-modal": "^1.0.1",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"
   },

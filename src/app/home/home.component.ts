@@ -24,6 +24,12 @@ export class HomeComponent implements OnInit {
     this.me = JSON.parse(localStorage.getItem('msn_user'));
     this.usersService.getUser(this.me.details.user.uid).valueChanges().subscribe((result) => {
       this.me = result;
+      this.me.friends = Object.keys(this.me.friends).map(function (key) { return result.friends[key]; });
+      this.me.friends.forEach((f, i) => {
+         this.usersService.getUser(f).valueChanges().subscribe((mf) => {
+           this.me.friends[i] = mf;
+         });
+      });
     });
     const audio = new Audio('assets/sound/online.m4a');
     audio.play();

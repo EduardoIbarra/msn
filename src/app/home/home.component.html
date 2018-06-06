@@ -39,12 +39,12 @@
       </div>
     </div>
     <hr />
-    <div class="row">
+    <div class="row" *ngIf="me.friends">
       <div class="col-md-12">
         <fa name="chevron-down"></fa>
-        <b>Amigos ({{users.length}}/{{users.length}})</b>
+        <b>Amigos ({{me.friends.length}}/{{me.friends.length}})</b>
       </div>
-      <div class="col-md-12 contact-list-item" routerLink="/conversation/{{u.uid}}" *ngFor="let u of users">
+      <div class="col-md-12 contact-list-item" routerLink="/conversation/{{u.uid}}" *ngFor="let u of me.friends">
         <img src="/assets/img/logo_live_{{u.status || 'offline'}}.png" class="status">
         <b>{{u.nick}}</b> <i class="msnicon brb"></i>
         <small *ngIf="u.subnick">{{u.subnick}}</small>
@@ -54,20 +54,23 @@
 </div>
 
 <ng-template #content let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <h3>Agregar Amigo</h3>
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <div class="row">
-      <div class="col-md-9">
-        <input class="form-control" type="email" placeholder="Ingresar Email" [(ngModel)]="requestEmail" (keyup.enter)="sendRequest()">
+  <div class="modal-content bluewhitebluebg">
+    <div class="modal-header bgWhite">
+      Agregar Amigo
+      <a class="closeButton" (click)="d('Cross click')">&times;</a>
+    </div>
+    <div class="modal-body">
+      <br />
+      <div class="row">
+        <div class="col-md-12">
+          <b>Ingresa el email de tu amigo</b>
+          <input class="form-control" type="email" placeholder="Ingresar Email" [(ngModel)]="requestEmail" (keyup.enter)="sendRequest()">
+        </div>
       </div>
-      <div class="col">
-        <a class="btn btn-primary btn-block" (click)="sendRequest()">Enviar</a>
-      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="grayButton" (click)="sendRequest()" autofocus>Enviar</button>
+      <button class="grayButton" (click)="d('Cross click')">Cancelar</button>
     </div>
   </div>
 </ng-template>

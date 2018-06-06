@@ -13,6 +13,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { ConversationComponent } from './conversation/conversation.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { BootstrapModalModule } from 'ng2-bootstrap-modal';
+import { FriendRequestModalComponent } from './modals/friend-request/friend-request.modal';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -26,7 +28,8 @@ const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    ConversationComponent
+    ConversationComponent,
+    FriendRequestModalComponent
   ],
   imports: [
     BrowserModule,
@@ -36,9 +39,13 @@ const appRoutes: Routes = [
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFontAwesomeModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    BootstrapModalModule.forRoot({container: document.body})
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    FriendRequestModalComponent
+  ]
 })
 export class AppModule { }
