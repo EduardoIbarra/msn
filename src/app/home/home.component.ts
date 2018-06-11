@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { RequestService } from '../services/request.service';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -17,11 +18,15 @@ export class HomeComponent implements OnInit {
   requestEmail: string;
   constructor(private usersService: UserService,
               private modalService: NgbModal,
+              private router: Router,
               private requestService: RequestService) {
     this.usersService.getUsers().valueChanges().subscribe((result) => {
       this.users = result;
     });
     this.me = JSON.parse(localStorage.getItem('msn_user'));
+    if (!this.me) {
+      this.router.navigate(['/login']);
+    }
     this.usersService.getUser(this.me.details.user.uid).valueChanges().subscribe((result: any) => {
       this.me = result;
       this.me.friends = Object.keys(this.me.friends).map(function (key) { return result.friends[key]; });
