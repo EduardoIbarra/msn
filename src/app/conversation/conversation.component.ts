@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../services/user.service';
 import { ConversationService } from '../services/conversation.service';
+import { MessagingService } from '../services/messaging.service';
 
 @Component({
   selector: 'app-conversation',
@@ -19,6 +20,7 @@ export class ConversationComponent implements OnInit {
   picture: any;
   friendPicture: any;
   constructor(private activatedRoute: ActivatedRoute, private userService: UserService,
+              private messagingService: MessagingService,
               private conversationService: ConversationService) {
     this.me = JSON.parse(localStorage.getItem('msn_user'));
     this.picture = (this.me.downloaded_picture) ? this.me.profile_picture
@@ -94,7 +96,17 @@ export class ConversationComponent implements OnInit {
       type: 'text',
       content: this.form.message.replace(/\n$/, '')
     };
-    this.conversationService.createConversation(messageObject);
+    this.conversationService.createConversation(messageObject).then(() => {
+      const notificationMessage = {
+        type: 'text',
+        friend_uid: this.friendId,
+        friend_name: this.friend.nick,
+        picture: this.friendPicture,
+        message: messageObject.content,
+        timestamp: Date.now()
+      };
+      this.messagingService.sendMessage(this.me.uid, notificationMessage);
+    });
     this.form.message = '';
   }
 }

@@ -1,22 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from './services/user.service';
 import { RequestService } from './services/request.service';
 import { DialogService } from 'ng2-bootstrap-modal';
 import { FriendRequestModalComponent } from './modals/friend-request/friend-request.modal';
+import { MessagingService } from './services/messaging.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'app';
   me: any = {};
   requests: any = [];
   shouldAdd: boolean;
   mailsShown: any = [];
+  message: any;
   constructor(private usersService: UserService,
               private requestService: RequestService,
+              private msgService: MessagingService,
               private dialogService: DialogService) {
     this.me = JSON.parse(localStorage.getItem('msn_user'));
     if (!this.me) {
@@ -38,5 +41,10 @@ export class AppComponent {
         });
       });
     });
+  }
+  ngOnInit() {
+    this.msgService.getPermission();
+    this.msgService.receiveMessage();
+    this.message = this.msgService.currentMessage;
   }
 }
