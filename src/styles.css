@@ -6,7 +6,7 @@
 }
 .homeContainer{
   background-image: url(/assets/img/msnbg.jpg);
-  background-size: contain;
+  background-size: 100%;
   background-repeat: no-repeat;
 }
 .whiteBorderGlassBox {
@@ -23,8 +23,14 @@
 .marbo15 {
   margin-bottom: 15px;
 }
+.marbo45 {
+  margin-bottom: 45px;
+}
 .marto15 {
   margin-top: 15px;
+}
+.marto45 {
+  margin-top: 45px;
 }
 .marbo5 {
   margin-bottom: 5px;
