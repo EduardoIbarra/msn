@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   subnick = '';
   closeResult: string;
   requestEmail: string;
+  picture: any;
   constructor(private usersService: UserService,
               private modalService: NgbModal,
               private router: Router,
@@ -27,8 +28,11 @@ export class HomeComponent implements OnInit {
     if (!this.me) {
       this.router.navigate(['/login']);
     }
-    this.usersService.getUser(this.me.details.user.uid).valueChanges().subscribe((result: any) => {
+    this.usersService.getUser(this.me.uid).valueChanges().subscribe((result: any) => {
       this.me = result;
+      localStorage.setItem('msn_user', JSON.stringify(this.me));
+      this.picture = (this.me.downloaded_picture) ? this.me.profile_picture
+        : 'https://wir.skyrock.net/wir/v1/profilcrop/?c=mog&w=301&h=301&im=%2Fart%2FPRIP.85914100.3.0.png';
       this.me.friends = Object.keys(this.me.friends).map(function (key) { return result.friends[key]; });
       this.me.friends.forEach((f, i) => {
          this.usersService.getUser(f).valueChanges().subscribe((mf) => {

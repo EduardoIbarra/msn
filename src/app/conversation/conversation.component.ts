@@ -16,13 +16,19 @@ export class ConversationComponent implements OnInit {
   conversation: any = [];
   ids: any = [];
   shake = false;
+  picture: any;
+  friendPicture: any;
   constructor(private activatedRoute: ActivatedRoute, private userService: UserService,
               private conversationService: ConversationService) {
     this.me = JSON.parse(localStorage.getItem('msn_user'));
+    this.picture = (this.me.downloaded_picture) ? this.me.profile_picture
+      : 'https://wir.skyrock.net/wir/v1/profilcrop/?c=mog&w=301&h=301&im=%2Fart%2FPRIP.85914100.3.0.png';
     this.friendId = this.activatedRoute.snapshot.params['uid'];
-    this.ids = [this.me.details.user.uid, this.friendId].sort();
+    this.ids = [this.me.uid, this.friendId].sort();
     this.userService.getUser(this.friendId).valueChanges().subscribe((user) => {
       this.friend = user;
+      this.friendPicture = (this.friend.downloaded_picture) ? this.friend.profile_picture
+        : 'https://wir.skyrock.net/wir/v1/profilcrop/?c=mog&w=301&h=301&im=%2Fart%2FPRIP.85914100.3.0.png';
       this.conversationService.getConversation(this.ids.join('||')).valueChanges()
         .subscribe((result) => {
           if (!result) {
@@ -30,7 +36,7 @@ export class ConversationComponent implements OnInit {
           }
           this.conversation = Object.keys(result).map(function (key) { return result[key]; });
           this.conversation.forEach((m: any) => {
-            if (!m.seen && m.sender !== this.me.details.user.uid) {
+            if (!m.seen && m.sender !== this.me.uid) {
               m.seen = true;
               if (m.type === 'zumbido') {
                 this.doZumbido();
@@ -53,7 +59,7 @@ export class ConversationComponent implements OnInit {
   getUserNickById(id) {
     if (id === this.friendId) {
       return this.friend.nick;
-    } else if (id === this.me.details.user.uid) {
+    } else if (id === this.me.uid) {
       return this.me.nick;
     }
   }
@@ -73,7 +79,7 @@ export class ConversationComponent implements OnInit {
     const messageObject: any = {
       uid: this.ids.join('||'),
       timestamp: Date.now(),
-      sender: this.me.details.user.uid,
+      sender: this.me.uid,
       receiver: this.friendId,
       type: 'zumbido',
     };
@@ -83,7 +89,7 @@ export class ConversationComponent implements OnInit {
     const messageObject: any = {
       uid: this.ids.join('||'),
       timestamp: Date.now(),
-      sender: this.me.details.user.uid,
+      sender: this.me.uid,
       receiver: this.friendId,
       type: 'text',
       content: this.form.message.replace(/\n$/, '')

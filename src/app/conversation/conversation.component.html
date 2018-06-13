@@ -1,28 +1,25 @@
 <div class="conversationContainer bluewhitebluebg">
-  <div id="conversationMenuContainer">
-    <div class="item" routerLink="/home"><img src="assets/img/logo_live.png"></div>
-    <div class="item">Archivos</div>
-  </div>
   <div class="row" [ngClass]="{'shaker': shake}">
     <div class="col-sm-3 maxwi300">
       <div id="conversationSidebar">
         <div class="vh30">
-          <div class="avatarFrameOnline">
-            <img src="http://via.placeholder.com/280x280" class="avatarImage img-fluid">
+          <div class="avatarFrame{{friend.status}}">
+            <img src="{{friendPicture}}" class="avatarImage img-fluid">
           </div>
         </div>
         <div class="vh30"></div>
         <div class="vh30">
-          <div class="avatarFrameOffline">
-            <img src="http://via.placeholder.com/280x280" class="avatarImage img-fluid">
+          <div class="avatarFrame{{me.status}}">
+            <img src="{{picture}}" class="avatarImage img-fluid">
           </div>
         </div>
       </div>
     </div>
     <div class="col-sm-9">
-      <div class="vh70 overscroll pabo10" id="messageArea">
-        <span class="friendName">{{friend.nick}}</span> (Conectada)
-        <hr />
+      <br />
+      <span class="friendName">{{friend.nick}}</span> ({{friend.status}})
+      <hr />
+      <div class="vh60 overscroll pabo10" id="messageArea">
         <div class="messageGroup" *ngFor="let m of conversation">
           <div *ngIf="m.type == 'text'">
             {{getUserNickById(m.sender)}} dice: <br />

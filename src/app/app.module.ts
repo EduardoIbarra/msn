@@ -15,12 +15,14 @@ import { ConversationComponent } from './conversation/conversation.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { BootstrapModalModule } from 'ng2-bootstrap-modal';
 import { FriendRequestModalComponent } from './modals/friend-request/friend-request.modal';
+import { AboutComponent } from './about/about.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'conversation/:uid', component: ConversationComponent },
-  { path: 'home', component: HomeComponent }
+  { path: 'home', component: HomeComponent },
+  { path: 'about', component: AboutComponent }
 ];
 
 @NgModule({
@@ -29,7 +31,8 @@ const appRoutes: Routes = [
     HomeComponent,
     LoginComponent,
     ConversationComponent,
-    FriendRequestModalComponent
+    FriendRequestModalComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
