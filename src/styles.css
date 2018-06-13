@@ -1,11 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 .loginContainer{
-  background-image: url(/assets/img/msnbg.jpg);
+  background-image: url(./assets/img/msnbg.jpg);
   background-size: contain;
   background-repeat: no-repeat;
 }
 .homeContainer{
-  background-image: url(/assets/img/msnbg.jpg);
+  background-image: url(./assets/img/msnbg.jpg);
   background-size: 100%;
   background-repeat: no-repeat;
 }
@@ -246,4 +246,7 @@ img.icon {
 }
 .pad30 {
   padding: 30px;
+}
+.pato45 {
+  padding-top: 45px;
 }

@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./settings.component.css']
 })
 export class SettingsComponent implements OnInit {
-  currentPictureId: any;
   me: any = {};
   user: any = {};
   picture: any;
