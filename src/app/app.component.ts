@@ -22,7 +22,7 @@ export class AppComponent {
     if (!this.me) {
       return;
     }
-    this.usersService.getUser(this.me.details.user.uid).valueChanges().subscribe((result) => {
+    this.usersService.getUser(this.me.uid).valueChanges().subscribe((result) => {
       console.log(this.mailsShown);
       this.me = result;
       this.requestService.getRequestsForEmail(this.me.email).valueChanges().subscribe( (requests: any) => {

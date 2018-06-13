@@ -1,0 +1,54 @@
+<div class="homeContainer">
+  <div class="container pato45">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="avatarFrame{{me.status}}" *ngIf="picture">
+          <img [src]="croppedImage || picture" class="avatarImage img-fluid">
+        </div>
+        <hr />
+        <div class="">
+          <span>Cambiar Foto</span>
+          <input type="file" (change)="fileChangeEvent($event)" />
+        </div>
+      </div>
+
+
+      <div class="col-md-9">
+        <image-cropper
+          [imageChangedEvent]="imageChangedEvent"
+          [maintainAspectRatio]="true"
+          [aspectRatio]="1 / 1"
+          [resizeToWidth]="800"
+          format="jpeg"
+          (imageCropped)="imageCropped($event)"
+          (imageLoaded)="imageLoaded()"
+          (loadImageFailed)="loadImageFailed()"
+        ></image-cropper>
+
+        <div>
+          <label fixed>Nick</label>
+          <input [(ngModel)]="user.nick" type="text" class="form-control" />
+        </div>
+        <div>
+          <label fixed>Subnick</label>
+          <input [(ngModel)]="user.subnick" type="text" class="form-control" />
+        </div>
+        <div>
+          <label fixed>Email</label>
+          <input disabled [(ngModel)]="user.email" type="email" class="form-control" />
+        </div>
+        <div>
+          <label>Status</label>
+          <select [(ngModel)]="user.status" class="form-control">
+            <option value="online">Conectado</option>
+            <option value="away">Ausente</option>
+            <option value="busy">Ocupado</option>
+            <option value="appear_offline">Desconectado</option>
+          </select>
+        </div>
+        <hr />
+        <a class="btn btn-primary btn-block" (click)="saveSettings()">Guardar</a>
+      </div>
+    </div>
+  </div>
+</div>

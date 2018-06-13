@@ -15,12 +15,18 @@ import { ConversationComponent } from './conversation/conversation.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { BootstrapModalModule } from 'ng2-bootstrap-modal';
 import { FriendRequestModalComponent } from './modals/friend-request/friend-request.modal';
+import { AboutComponent } from './about/about.component';
+import { SettingsComponent } from './settings/settings.component';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'conversation/:uid', component: ConversationComponent },
-  { path: 'home', component: HomeComponent }
+  { path: 'home', component: HomeComponent },
+  { path: 'settings', component: SettingsComponent },
+  { path: 'about', component: AboutComponent }
 ];
 
 @NgModule({
@@ -29,7 +35,9 @@ const appRoutes: Routes = [
     HomeComponent,
     LoginComponent,
     ConversationComponent,
-    FriendRequestModalComponent
+    FriendRequestModalComponent,
+    AboutComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -39,8 +47,10 @@ const appRoutes: Routes = [
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFontAwesomeModule,
+    AngularFireStorageModule,
     NgbModule.forRoot(),
-    BootstrapModalModule.forRoot({container: document.body})
+    BootstrapModalModule.forRoot({container: document.body}),
+    ImageCropperModule
   ],
   providers: [],
   bootstrap: [AppComponent],

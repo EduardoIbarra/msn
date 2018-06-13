@@ -1,10 +1,11 @@
 <div class="homeContainer">
-  <img src="/assets/img/logo_live.png" class="icon marbo5" /> <span class="whiteColor"> Retro Msn Alive!</span>
   <div class="whiteBorderGlassBox">
     <div class="homeHeadContainer">
       <div class="row">
         <div class="col-md-auto">
-          <img src="http://via.placeholder.com/140x140">
+          <div class="avatarFrame{{me.status}}">
+            <img src="{{picture}}" id="homeAvatarPicture">
+          </div>
         </div>
         <div class="col">
           <b>{{me.nick}}</b>
@@ -35,7 +36,7 @@
         <input type="text" class="form-control" placeholder="Buscar un contacto o un número...">
       </div>
       <div class="col-md-auto">
-        <img src="/assets/img/logo_live_add.png" class="icon" (click)="open(content)"  />
+        <img src="assets/img/logo_live_add.png" class="icon" (click)="open(content)"  />
       </div>
     </div>
     <hr />
@@ -45,7 +46,7 @@
         <b>Amigos ({{me.friends.length}}/{{me.friends.length}})</b>
       </div>
       <div class="col-md-12 contact-list-item" routerLink="/conversation/{{u.uid}}" *ngFor="let u of me.friends">
-        <img src="/assets/img/logo_live_{{u.status || 'offline'}}.png" class="status">
+        <img src="assets/img/logo_live_{{u.status || 'offline'}}.png" class="status">
         <b>{{u.nick}}</b> <i class="msnicon brb"></i>
         <small *ngIf="u.subnick">{{u.subnick}}</small>
       </div>
