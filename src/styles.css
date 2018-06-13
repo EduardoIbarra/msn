@@ -172,7 +172,7 @@ img.icon {
   border: none !important;
 }
 .shaker {
-  animation: shake 0.5s;
+  animation: shake 2.0s;
   animation-iteration-count: infinite;
 }
 @keyframes shake {
@@ -275,11 +275,12 @@ img.icon {
   -moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
   box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
   cursor: pointer;
-  -webkit-animation: fadeInFromNone 0.5s ease-out;
-  -moz-animation: fadeInFromNone 0.5s ease-out;
-  -o-animation: fadeInFromNone 0.5s ease-out;
-  animation: fadeInFromNone 0.5s ease-out;
+  -webkit-animation: fadeInFromNone 2.0s ease-out;
+  -moz-animation: fadeInFromNone 2.0s ease-out;
+  -o-animation: fadeInFromNone 2.0s ease-out;
+  animation: fadeInFromNone 2.0s ease-out;
   z-index: 9;
+  min-width: 33%;
 }
 .toasterHeaderContainer > img {
   width: 20px;

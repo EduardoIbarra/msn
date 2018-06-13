@@ -103,7 +103,7 @@ export class ConversationComponent implements OnInit {
         friend_name: this.friend.nick,
         picture: this.friendPicture,
         message: messageObject.content,
-        timestamp: Date.now()
+        timestamp: Date.now() + ''
       };
       this.messagingService.sendMessage(this.me.uid, notificationMessage);
     });

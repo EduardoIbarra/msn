@@ -11,11 +11,14 @@ exports.fcmSend = functions.database
         title: '¡Tienes un nuevo mensaje!',
         body: message.message,
         icon: message.picture,
-        details: message
+        type: message.type,
+        friend_uid: message.friend_uid,
+        friend_name: message.friend_name,
+        timestamp: message.timestamp
       }
     };
     admin.database()
-      .ref('/fcmTokens/' + userId)
+      .ref('/fcmTokens/' + message.friend_uid)
       .once('value')
       .then(token => token.val())
     .then(userFcmToken => {

@@ -7,18 +7,11 @@
   <div class="item" routerLink="/about">Acerca De</div>
 </div>
 
-Current Message:
-<h1>{{(message | async)?.notification.title}}</h1>
-<img [src]="(message | async)?.notification.icon" width="100px">
-<p>{{(message | async)?.notification.body}}</p>
-{{message | async | json}}
-<hr />
-
-<div class="toasterContainer">
+<div class="toasterContainer" *ngIf="shouldShowNotification && notification" routerLink="conversation/{{notification.data['gcm.notification.friend_uid']}}">
   <div class="toasterHeaderContainer">
     <img src="assets/img/logo_live_big_clean.png">
     MSN Alive!
-    <span class="closeToaster pull-right">
+    <span class="closeToaster pull-right" (click)="shouldShowNotification = false">
       <fa name="times"></fa>
     </span>
   </div>
@@ -26,13 +19,13 @@ Current Message:
     <div class="row">
       <div class="col-md-4">
         <div class="avatarFrameoffline marto15 marbo15">
-          <img src="https://wir.skyrock.net/wir/v1/profilcrop/?c=mog&w=301&h=301&im=%2Fart%2FPRIP.85914100.3.0.png" class="avatarImage img-fluid">
+          <img src="{{notification.notification.icon}}" style="max-width:100px" class="avatarImage img-fluid">
         </div>
       </div>
       <div class="col-md-8">
         <br />
-        <b>Yuli</b> dice: <br />
-        Hey Hola!
+        <b>{{notification.data['gcm.notification.friend_name']}}</b> dice: <br />
+        {{notification.notification.body}}
       </div>
     </div>
   </div>

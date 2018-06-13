@@ -17,6 +17,8 @@ export class AppComponent implements OnInit{
   shouldAdd: boolean;
   mailsShown: any = [];
   message: any;
+  shouldShowNotification = false;
+  notification: any;
   constructor(private usersService: UserService,
               private requestService: RequestService,
               private msgService: MessagingService,
@@ -45,6 +47,14 @@ export class AppComponent implements OnInit{
   ngOnInit() {
     this.msgService.getPermission();
     this.msgService.receiveMessage();
-    this.message = this.msgService.currentMessage;
+    this.message = this.msgService.currentMessage.subscribe((message) => {
+      const audio = new Audio('assets/sound/new_message.m4a');
+      audio.play();
+      this.notification = message;
+      this.shouldShowNotification = true;
+      window.setTimeout( () => {
+        this.shouldShowNotification = false;
+      }, 7500);
+    });
   }
 }
