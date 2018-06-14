@@ -7,6 +7,7 @@ exports.fcmSend = functions.database
   const message = event.data.val();
     const userId = event.params.userId;
     var tokens = [];
+    console.log('******', userId);
     const payload = {
       notification: {
         title: '¡Tienes un nuevo mensaje!',
@@ -18,7 +19,6 @@ exports.fcmSend = functions.database
         timestamp: message.timestamp
       }
     };
-    console.log(userId);
     admin.database().ref('fcmTokens')
       .orderByChild('userId')
       .equalTo(userId)
@@ -26,18 +26,11 @@ exports.fcmSend = functions.database
       .then( (result) => {
         var obj = result.val();
         var objectsArray = Object.keys(obj).map(key => obj[key]);
-        console.log('hey', objectsArray);
         objectsArray.forEach((r) => {
           tokens.push(r.token);
         });
         return admin.messaging().sendToDevice(tokens, payload);
       })
-      /*.ref('/fcmTokens/' + message.friend_uid)
-      .once('value')
-      .then(token => token.val())
-    .then(userFcmToken => {
-      return admin.messaging().sendToDevice(userFcmToken, payload);
-    })*/
     .then(res => {
       console.log('Sent Successfully', payload);
       return res;

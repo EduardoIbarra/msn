@@ -99,13 +99,13 @@ export class ConversationComponent implements OnInit {
     this.conversationService.createConversation(messageObject).then(() => {
       const notificationMessage = {
         type: 'text',
-        friend_uid: this.friendId,
-        friend_name: this.friend.nick,
-        picture: this.friendPicture,
+        friend_uid: this.me.uid,
+        friend_name: this.me.nick,
+        picture: this.picture,
         message: messageObject.content,
         timestamp: Date.now() + ''
       };
-      this.messagingService.sendMessage(this.me.uid, notificationMessage);
+      this.messagingService.sendMessage(this.friendId, notificationMessage);
     });
     this.form.message = '';
   }
