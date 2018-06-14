@@ -1172,3 +1172,1364 @@ query params: {"updateMask":"sourceUploadUrl,name,labels,eventTrigger.resource,e
 [info] ✔  Deploy complete!
 [info] 
 [info] Project Console: https://console.firebase.google.com/project/msnp-fdd0e/overview
+[debug] [2018-06-14T00:06:40.473Z] ----------------------------------------------------------------------
+[debug] [2018-06-14T00:06:40.484Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy --only functions:fcmSend --debug
+[debug] [2018-06-14T00:06:40.484Z] CLI Version:   3.17.7
+[debug] [2018-06-14T00:06:40.485Z] Platform:      darwin
+[debug] [2018-06-14T00:06:40.485Z] Node Version:  v9.9.0
+[debug] [2018-06-14T00:06:40.486Z] Time:          Wed Jun 13 2018 19:06:40 GMT-0500 (CDT)
+[debug] [2018-06-14T00:06:40.486Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-06-14T00:06:40.516Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-06-14T00:06:40.517Z] > authorizing via signed-in user
+[debug] [2018-06-14T00:06:40.522Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-06-14T00:06:40.524Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/wA903NXciUh-qkBFiN234P1z4thXjlK-aBiDGyRLlGo',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Wed Jun 13 2018 19:06:40 GMT-0500 (CDT)
+[debug] [2018-06-14T00:06:40.813Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:06:40.844Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/msnp-fdd0e  
+  
+ Wed Jun 13 2018 19:06:40 GMT-0500 (CDT)
+[debug] [2018-06-14T00:06:41.315Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:06:41.316Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/msnp-fdd0e/tokens  
+  
+ Wed Jun 13 2018 19:06:41 GMT-0500 (CDT)
+[debug] [2018-06-14T00:06:42.005Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'msnp-fdd0e'...
+[info] 
+[info] i  deploying functions
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] ✔  functions: Finished running predeploy script.
+[debug] [2018-06-14T00:06:44.653Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase serve --only functions",
+    "shell": "firebase experimental:functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "firebase-admin": "~5.10.0",
+    "firebase-functions": "^0.9.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.12.0",
+    "eslint-plugin-promise": "^3.6.0"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2018-06-14T00:06:44.655Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/msnp-fdd0e?view=CONSUMER_VIEW  
+  
+ Wed Jun 13 2018 19:06:44 GMT-0500 (CDT)
+[debug] [2018-06-14T00:06:44.656Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/msnp-fdd0e?view=CONSUMER_VIEW  
+  
+ Wed Jun 13 2018 19:06:44 GMT-0500 (CDT)
+[debug] [2018-06-14T00:06:45.218Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: all necessary APIs are enabled
+[debug] [2018-06-14T00:06:45.221Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:06:45.222Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/msnp-fdd0e  
+  
+ Wed Jun 13 2018 19:06:45 GMT-0500 (CDT)
+[debug] [2018-06-14T00:06:45.504Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:06:45.505Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/368905821941:getServerAppConfig  
+  
+ Wed Jun 13 2018 19:06:45 GMT-0500 (CDT)
+[debug] [2018-06-14T00:06:45.891Z] <<< HTTP RESPONSE 200
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2018-06-14T00:06:45.893Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/msnp-fdd0e/configs  
+  
+ Wed Jun 13 2018 19:06:45 GMT-0500 (CDT)
+[debug] [2018-06-14T00:06:46.152Z] <<< HTTP RESPONSE 200
+[info] i  functions: packaged functions (49.82 KB) for uploading
+[debug] [2018-06-14T00:06:46.743Z] >>> HTTP REQUEST POST https://cloudfunctions.googleapis.com/v1/projects/msnp-fdd0e/locations/us-central1/functions:generateUploadUrl  
+  
+ Wed Jun 13 2018 19:06:46 GMT-0500 (CDT)
+[debug] [2018-06-14T00:06:47.092Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:06:47.094Z] >>> HTTP REQUEST PUT https://storage.googleapis.com/gcf-upload-us-central1-586dbcdc-dfb8-4e8b-8f68-b3b73259b107/f4490d0a-eb43-4280-878c-135dd3ad7ea5.zip?GoogleAccessId=service-368905821941@gcf-admin-robot.iam.gserviceaccount.com&Expires=1528936607&Signature=l%2B9Sb0Aun%2BAcrPiFhVIEwE4jryasNkJsJXw%2Fc6LHzjbtUKiGS2AzHGz2Nej79XGY5Epu%2Bk%2B%2FNKiacZ%2FM9zRGwOYpccl2ucJ%2FkNLXv2joMjM%2BTHl09Owbh%2FSmacfAxp2G0SFEN2mOpKs9m86j%2F308JjtqlJQMTHaMhrZ6QuFmNzv1LtURP4TPflK0BXqbymopdeaLLdwsy0NMUP0bfucHDgGnMiTEqo3%2FvkrjV%2FuCVmP5oPN99nenrfDtq1q6Hhqljy1UAy%2F%2B2TEBHN4vVpVjM%2FkByhLoADLDFvACbhzPfQju6CyflhYp1wMkpJmyeZIfZCWKq9PlJP404Lk6tFYUNA%3D%3D  
+ ReadStream {
+  _readableState: 
+   ReadableState {
+     objectMode: false,
+     highWaterMark: 65536,
+     buffer: BufferList { head: [Object], tail: [Object], length: 1 },
+     length: 51018,
+     pipes: null,
+     pipesCount: 0,
+     flowing: null,
+     ended: true,
+     endEmitted: false,
+     reading: false,
+     sync: false,
+     needReadable: false,
+     emittedReadable: true,
+     readableListening: false,
+     resumeScheduled: false,
+     destroyed: false,
+     defaultEncoding: 'utf8',
+     awaitDrain: 0,
+     readingMore: false,
+     decoder: null,
+     encoding: null },
+  readable: true,
+  domain: null,
+  _events: { end: [Function] },
+  _eventsCount: 1,
+  _maxListeners: undefined,
+  path: '/var/folders/y4/m33wdg9s4wx12x4sfppn4z4r0000gn/T/firebase-functions-50826NdRaEfS8OUPH.zip',
+  fd: 20,
+  flags: 'r',
+  mode: 438,
+  start: undefined,
+  end: Infinity,
+  autoClose: true,
+  pos: undefined,
+  bytesRead: 51018,
+  closed: false } 
+ Wed Jun 13 2018 19:06:47 GMT-0500 (CDT)
+[debug] [2018-06-14T00:06:47.862Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: functions folder uploaded successfully
+[debug] [2018-06-14T00:06:47.865Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/msnp-fdd0e/locations/us-central1/functions  
+  
+ Wed Jun 13 2018 19:06:47 GMT-0500 (CDT)
+[debug] [2018-06-14T00:06:48.057Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:06:48.062Z] > [functions] filtering triggers to: [
+  "fcmSend"
+]
+[info] i  functions: current functions in project: fcmSend
+[info] i  functions: uploading functions in project: fcmSend
+[info] i  functions: updating function fcmSend...
+[debug] [2018-06-14T00:06:48.069Z] Trigger is:  {"eventTrigger":{"resource":"projects/_/instances/msnp-fdd0e/refs/messages/{userId}/{messageId}","eventType":"providers/google.firebase.database/eventTypes/ref.create"}}
+[debug] [2018-06-14T00:06:48.071Z] >>> HTTP REQUEST PATCH https://cloudfunctions.googleapis.com/v1/projects/msnp-fdd0e/locations/us-central1/functions/fcmSend 
+query params: {"updateMask":"sourceUploadUrl,name,labels,eventTrigger.resource,eventTrigger.eventType"} 
+ { sourceUploadUrl: 'https://storage.googleapis.com/gcf-upload-us-central1-586dbcdc-dfb8-4e8b-8f68-b3b73259b107/f4490d0a-eb43-4280-878c-135dd3ad7ea5.zip?GoogleAccessId=service-368905821941@gcf-admin-robot.iam.gserviceaccount.com&Expires=1528936607&Signature=l%2B9Sb0Aun%2BAcrPiFhVIEwE4jryasNkJsJXw%2Fc6LHzjbtUKiGS2AzHGz2Nej79XGY5Epu%2Bk%2B%2FNKiacZ%2FM9zRGwOYpccl2ucJ%2FkNLXv2joMjM%2BTHl09Owbh%2FSmacfAxp2G0SFEN2mOpKs9m86j%2F308JjtqlJQMTHaMhrZ6QuFmNzv1LtURP4TPflK0BXqbymopdeaLLdwsy0NMUP0bfucHDgGnMiTEqo3%2FvkrjV%2FuCVmP5oPN99nenrfDtq1q6Hhqljy1UAy%2F%2B2TEBHN4vVpVjM%2FkByhLoADLDFvACbhzPfQju6CyflhYp1wMkpJmyeZIfZCWKq9PlJP404Lk6tFYUNA%3D%3D',
+  name: 'projects/msnp-fdd0e/locations/us-central1/functions/fcmSend',
+  labels: { 'deployment-tool': 'cli-firebase' },
+  eventTrigger: 
+   { resource: 'projects/_/instances/msnp-fdd0e/refs/messages/{userId}/{messageId}',
+     eventType: 'providers/google.firebase.database/eventTypes/ref.create' } } 
+ Wed Jun 13 2018 19:06:48 GMT-0500 (CDT)
+[debug] [2018-06-14T00:06:48.395Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:06:48.400Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL2xaUDcwZmM1TU1r  
+  
+ Wed Jun 13 2018 19:06:48 GMT-0500 (CDT)
+[debug] [2018-06-14T00:06:48.626Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:06:50.632Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL2xaUDcwZmM1TU1r  
+  
+ Wed Jun 13 2018 19:06:50 GMT-0500 (CDT)
+[debug] [2018-06-14T00:06:50.880Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:06:52.882Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL2xaUDcwZmM1TU1r  
+  
+ Wed Jun 13 2018 19:06:52 GMT-0500 (CDT)
+[debug] [2018-06-14T00:06:53.105Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:06:55.107Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL2xaUDcwZmM1TU1r  
+  
+ Wed Jun 13 2018 19:06:55 GMT-0500 (CDT)
+[debug] [2018-06-14T00:06:55.323Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:06:57.325Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL2xaUDcwZmM1TU1r  
+  
+ Wed Jun 13 2018 19:06:57 GMT-0500 (CDT)
+[debug] [2018-06-14T00:06:57.559Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:06:59.563Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL2xaUDcwZmM1TU1r  
+  
+ Wed Jun 13 2018 19:06:59 GMT-0500 (CDT)
+[debug] [2018-06-14T00:06:59.842Z] <<< HTTP RESPONSE 200
+[info] ✔  functions[fcmSend]: Successful update operation. 
+[info] 
+[info] ✔  Deploy complete!
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/msnp-fdd0e/overview
+[debug] [2018-06-14T00:09:04.939Z] ----------------------------------------------------------------------
+[debug] [2018-06-14T00:09:04.947Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy --only functions:fcmSend --debug
+[debug] [2018-06-14T00:09:04.948Z] CLI Version:   3.17.7
+[debug] [2018-06-14T00:09:04.948Z] Platform:      darwin
+[debug] [2018-06-14T00:09:04.948Z] Node Version:  v9.9.0
+[debug] [2018-06-14T00:09:04.949Z] Time:          Wed Jun 13 2018 19:09:04 GMT-0500 (CDT)
+[debug] [2018-06-14T00:09:04.950Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-06-14T00:09:04.973Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-06-14T00:09:04.973Z] > authorizing via signed-in user
+[debug] [2018-06-14T00:09:04.978Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/msnp-fdd0e  
+  
+ Wed Jun 13 2018 19:09:04 GMT-0500 (CDT)
+[debug] [2018-06-14T00:09:05.511Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:09:05.513Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/msnp-fdd0e/tokens  
+  
+ Wed Jun 13 2018 19:09:05 GMT-0500 (CDT)
+[debug] [2018-06-14T00:09:06.201Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'msnp-fdd0e'...
+[info] 
+[info] i  deploying functions
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] ✔  functions: Finished running predeploy script.
+[debug] [2018-06-14T00:09:08.523Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase serve --only functions",
+    "shell": "firebase experimental:functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "firebase-admin": "~5.10.0",
+    "firebase-functions": "^0.9.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.12.0",
+    "eslint-plugin-promise": "^3.6.0"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2018-06-14T00:09:08.527Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/msnp-fdd0e?view=CONSUMER_VIEW  
+  
+ Wed Jun 13 2018 19:09:08 GMT-0500 (CDT)
+[debug] [2018-06-14T00:09:08.528Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/msnp-fdd0e?view=CONSUMER_VIEW  
+  
+ Wed Jun 13 2018 19:09:08 GMT-0500 (CDT)
+[debug] [2018-06-14T00:09:09.089Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:09:09.157Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: all necessary APIs are enabled
+[debug] [2018-06-14T00:09:09.159Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/msnp-fdd0e  
+  
+ Wed Jun 13 2018 19:09:09 GMT-0500 (CDT)
+[debug] [2018-06-14T00:09:09.436Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:09:09.437Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/368905821941:getServerAppConfig  
+  
+ Wed Jun 13 2018 19:09:09 GMT-0500 (CDT)
+[debug] [2018-06-14T00:09:09.768Z] <<< HTTP RESPONSE 200
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2018-06-14T00:09:09.771Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/msnp-fdd0e/configs  
+  
+ Wed Jun 13 2018 19:09:09 GMT-0500 (CDT)
+[debug] [2018-06-14T00:09:10.016Z] <<< HTTP RESPONSE 200
+[info] i  functions: packaged functions (49.82 KB) for uploading
+[debug] [2018-06-14T00:09:10.561Z] >>> HTTP REQUEST POST https://cloudfunctions.googleapis.com/v1/projects/msnp-fdd0e/locations/us-central1/functions:generateUploadUrl  
+  
+ Wed Jun 13 2018 19:09:10 GMT-0500 (CDT)
+[debug] [2018-06-14T00:09:10.861Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:09:10.862Z] >>> HTTP REQUEST PUT https://storage.googleapis.com/gcf-upload-us-central1-586dbcdc-dfb8-4e8b-8f68-b3b73259b107/9a398224-9704-4fc9-8ac9-78ea27de0920.zip?GoogleAccessId=service-368905821941@gcf-admin-robot.iam.gserviceaccount.com&Expires=1528936750&Signature=elj4pSGHqXwt0%2BqvXtP2mnXzJ7%2FplDU9dVCTVfZ3ee8IjuhLltpbiO7zYD9L7pcB8teuc32YnJVV9W0bLiWEzeX3JKcBQXibfJH2U%2F%2BE%2FN5hD18%2FQwTUuVDPbHIDCpZuTLy0nLkaj8sWEzoq4qRu%2FzsY5v3IoeXgFKFDjNGFb6f9Dcnlo0H%2Bdtl2emEF09axuxrqqcyLRBpbwxLQwo2tTKiKadnhrcymVc0tGd5%2F4lrAsQj3biDLgsFNmoohXJfUUV4BhkGl9f8UYRLXEGn%2BuYhZiYRhNAcYcFE%2Ft6WSL%2B7T%2B4cERg1qzgUvIDitKvqemyKnkx71MZ0liLpcNRXh5g%3D%3D  
+ ReadStream {
+  _readableState: 
+   ReadableState {
+     objectMode: false,
+     highWaterMark: 65536,
+     buffer: BufferList { head: [Object], tail: [Object], length: 1 },
+     length: 51017,
+     pipes: null,
+     pipesCount: 0,
+     flowing: null,
+     ended: true,
+     endEmitted: false,
+     reading: false,
+     sync: false,
+     needReadable: false,
+     emittedReadable: true,
+     readableListening: false,
+     resumeScheduled: false,
+     destroyed: false,
+     defaultEncoding: 'utf8',
+     awaitDrain: 0,
+     readingMore: false,
+     decoder: null,
+     encoding: null },
+  readable: true,
+  domain: null,
+  _events: { end: [Function] },
+  _eventsCount: 1,
+  _maxListeners: undefined,
+  path: '/var/folders/y4/m33wdg9s4wx12x4sfppn4z4r0000gn/T/firebase-functions-50868gG7RSuePP5Ff.zip',
+  fd: 20,
+  flags: 'r',
+  mode: 438,
+  start: undefined,
+  end: Infinity,
+  autoClose: true,
+  pos: undefined,
+  bytesRead: 51017,
+  closed: false } 
+ Wed Jun 13 2018 19:09:10 GMT-0500 (CDT)
+[debug] [2018-06-14T00:09:11.628Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: functions folder uploaded successfully
+[debug] [2018-06-14T00:09:11.631Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/msnp-fdd0e/locations/us-central1/functions  
+  
+ Wed Jun 13 2018 19:09:11 GMT-0500 (CDT)
+[debug] [2018-06-14T00:09:11.822Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:09:11.828Z] > [functions] filtering triggers to: [
+  "fcmSend"
+]
+[info] i  functions: current functions in project: fcmSend
+[info] i  functions: uploading functions in project: fcmSend
+[info] i  functions: updating function fcmSend...
+[debug] [2018-06-14T00:09:11.836Z] Trigger is:  {"eventTrigger":{"resource":"projects/_/instances/msnp-fdd0e/refs/messages/{userId}/{messageId}","eventType":"providers/google.firebase.database/eventTypes/ref.create"}}
+[debug] [2018-06-14T00:09:11.839Z] >>> HTTP REQUEST PATCH https://cloudfunctions.googleapis.com/v1/projects/msnp-fdd0e/locations/us-central1/functions/fcmSend 
+query params: {"updateMask":"sourceUploadUrl,name,labels,eventTrigger.resource,eventTrigger.eventType"} 
+ { sourceUploadUrl: 'https://storage.googleapis.com/gcf-upload-us-central1-586dbcdc-dfb8-4e8b-8f68-b3b73259b107/9a398224-9704-4fc9-8ac9-78ea27de0920.zip?GoogleAccessId=service-368905821941@gcf-admin-robot.iam.gserviceaccount.com&Expires=1528936750&Signature=elj4pSGHqXwt0%2BqvXtP2mnXzJ7%2FplDU9dVCTVfZ3ee8IjuhLltpbiO7zYD9L7pcB8teuc32YnJVV9W0bLiWEzeX3JKcBQXibfJH2U%2F%2BE%2FN5hD18%2FQwTUuVDPbHIDCpZuTLy0nLkaj8sWEzoq4qRu%2FzsY5v3IoeXgFKFDjNGFb6f9Dcnlo0H%2Bdtl2emEF09axuxrqqcyLRBpbwxLQwo2tTKiKadnhrcymVc0tGd5%2F4lrAsQj3biDLgsFNmoohXJfUUV4BhkGl9f8UYRLXEGn%2BuYhZiYRhNAcYcFE%2Ft6WSL%2B7T%2B4cERg1qzgUvIDitKvqemyKnkx71MZ0liLpcNRXh5g%3D%3D',
+  name: 'projects/msnp-fdd0e/locations/us-central1/functions/fcmSend',
+  labels: { 'deployment-tool': 'cli-firebase' },
+  eventTrigger: 
+   { resource: 'projects/_/instances/msnp-fdd0e/refs/messages/{userId}/{messageId}',
+     eventType: 'providers/google.firebase.database/eventTypes/ref.create' } } 
+ Wed Jun 13 2018 19:09:11 GMT-0500 (CDT)
+[debug] [2018-06-14T00:09:12.254Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:09:12.258Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL3ZUSWt1SEQ0UjQ0  
+  
+ Wed Jun 13 2018 19:09:12 GMT-0500 (CDT)
+[debug] [2018-06-14T00:09:12.518Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:09:14.525Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL3ZUSWt1SEQ0UjQ0  
+  
+ Wed Jun 13 2018 19:09:14 GMT-0500 (CDT)
+[debug] [2018-06-14T00:09:14.768Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:09:16.772Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL3ZUSWt1SEQ0UjQ0  
+  
+ Wed Jun 13 2018 19:09:16 GMT-0500 (CDT)
+[debug] [2018-06-14T00:09:16.991Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:09:18.997Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL3ZUSWt1SEQ0UjQ0  
+  
+ Wed Jun 13 2018 19:09:18 GMT-0500 (CDT)
+[debug] [2018-06-14T00:09:19.248Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:09:21.248Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL3ZUSWt1SEQ0UjQ0  
+  
+ Wed Jun 13 2018 19:09:21 GMT-0500 (CDT)
+[debug] [2018-06-14T00:09:21.494Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:09:23.495Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL3ZUSWt1SEQ0UjQ0  
+  
+ Wed Jun 13 2018 19:09:23 GMT-0500 (CDT)
+[debug] [2018-06-14T00:09:23.738Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:09:25.740Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL3ZUSWt1SEQ0UjQ0  
+  
+ Wed Jun 13 2018 19:09:25 GMT-0500 (CDT)
+[debug] [2018-06-14T00:09:26.003Z] <<< HTTP RESPONSE 200
+[info] ✔  functions[fcmSend]: Successful update operation. 
+[info] 
+[info] ✔  Deploy complete!
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/msnp-fdd0e/overview
+[debug] [2018-06-14T00:11:37.728Z] ----------------------------------------------------------------------
+[debug] [2018-06-14T00:11:37.737Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy --only functions:fcmSend --debug
+[debug] [2018-06-14T00:11:37.738Z] CLI Version:   3.17.7
+[debug] [2018-06-14T00:11:37.738Z] Platform:      darwin
+[debug] [2018-06-14T00:11:37.739Z] Node Version:  v9.9.0
+[debug] [2018-06-14T00:11:37.740Z] Time:          Wed Jun 13 2018 19:11:37 GMT-0500 (CDT)
+[debug] [2018-06-14T00:11:37.740Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-06-14T00:11:37.767Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-06-14T00:11:37.768Z] > authorizing via signed-in user
+[debug] [2018-06-14T00:11:37.773Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/msnp-fdd0e  
+  
+ Wed Jun 13 2018 19:11:37 GMT-0500 (CDT)
+[debug] [2018-06-14T00:11:38.220Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:11:38.223Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/msnp-fdd0e/tokens  
+  
+ Wed Jun 13 2018 19:11:38 GMT-0500 (CDT)
+[debug] [2018-06-14T00:11:38.584Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'msnp-fdd0e'...
+[info] 
+[info] i  deploying functions
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] ✔  functions: Finished running predeploy script.
+[debug] [2018-06-14T00:11:40.951Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase serve --only functions",
+    "shell": "firebase experimental:functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "firebase-admin": "~5.10.0",
+    "firebase-functions": "^0.9.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.12.0",
+    "eslint-plugin-promise": "^3.6.0"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2018-06-14T00:11:40.954Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/msnp-fdd0e?view=CONSUMER_VIEW  
+  
+ Wed Jun 13 2018 19:11:40 GMT-0500 (CDT)
+[debug] [2018-06-14T00:11:40.955Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/msnp-fdd0e?view=CONSUMER_VIEW  
+  
+ Wed Jun 13 2018 19:11:40 GMT-0500 (CDT)
+[debug] [2018-06-14T00:11:41.443Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:11:41.505Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: all necessary APIs are enabled
+[debug] [2018-06-14T00:11:41.506Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/msnp-fdd0e  
+  
+ Wed Jun 13 2018 19:11:41 GMT-0500 (CDT)
+[debug] [2018-06-14T00:11:41.786Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:11:41.787Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/368905821941:getServerAppConfig  
+  
+ Wed Jun 13 2018 19:11:41 GMT-0500 (CDT)
+[debug] [2018-06-14T00:11:42.139Z] <<< HTTP RESPONSE 200
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2018-06-14T00:11:42.142Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/msnp-fdd0e/configs  
+  
+ Wed Jun 13 2018 19:11:42 GMT-0500 (CDT)
+[debug] [2018-06-14T00:11:42.365Z] <<< HTTP RESPONSE 200
+[info] i  functions: packaged functions (49.83 KB) for uploading
+[debug] [2018-06-14T00:11:42.940Z] >>> HTTP REQUEST POST https://cloudfunctions.googleapis.com/v1/projects/msnp-fdd0e/locations/us-central1/functions:generateUploadUrl  
+  
+ Wed Jun 13 2018 19:11:42 GMT-0500 (CDT)
+[debug] [2018-06-14T00:11:43.171Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:11:43.172Z] >>> HTTP REQUEST PUT https://storage.googleapis.com/gcf-upload-us-central1-586dbcdc-dfb8-4e8b-8f68-b3b73259b107/3f74c564-1f33-41c3-b3d2-8ae077b3cedd.zip?GoogleAccessId=service-368905821941@gcf-admin-robot.iam.gserviceaccount.com&Expires=1528936903&Signature=g9tfLl3qkQEyCDS3EhpTilSPwLYpKg6VJzsi%2B3kP%2B%2F%2BxBYPuD9m%2BfMTYBiAe7%2Fo5nnWxtjObHu2bLkKpIW6dAObmoFVKcjUbA7m%2FsoI8PPv9%2BWtSfQboyzIkfozIz%2BODT9vwmJbxiasgaqpf3YtRbzXPnx7N1ztL%2FIFUmr2rtfQrLbNMGT3V7sEWeubWd2q%2B31L1MGhazuV9jOcGWi2ove5n1mdxyf14%2FRxc2HkGcOIgk2i6dOhmPkuu00zeyeV5vikDJ4ZHCF%2BmPVZ5f8HqQ0B1QuK7Yqq7rxc6oYfjWOI6Sa8IHmsZ%2BpxvALTkPMshXk7mD59A3rJAkgIoJGM1zQ%3D%3D  
+ ReadStream {
+  _readableState: 
+   ReadableState {
+     objectMode: false,
+     highWaterMark: 65536,
+     buffer: BufferList { head: [Object], tail: [Object], length: 1 },
+     length: 51031,
+     pipes: null,
+     pipesCount: 0,
+     flowing: null,
+     ended: true,
+     endEmitted: false,
+     reading: false,
+     sync: false,
+     needReadable: false,
+     emittedReadable: true,
+     readableListening: false,
+     resumeScheduled: false,
+     destroyed: false,
+     defaultEncoding: 'utf8',
+     awaitDrain: 0,
+     readingMore: false,
+     decoder: null,
+     encoding: null },
+  readable: true,
+  domain: null,
+  _events: { end: [Function] },
+  _eventsCount: 1,
+  _maxListeners: undefined,
+  path: '/var/folders/y4/m33wdg9s4wx12x4sfppn4z4r0000gn/T/firebase-functions-50895BsuKiZpQku0X.zip',
+  fd: 19,
+  flags: 'r',
+  mode: 438,
+  start: undefined,
+  end: Infinity,
+  autoClose: true,
+  pos: undefined,
+  bytesRead: 51031,
+  closed: false } 
+ Wed Jun 13 2018 19:11:43 GMT-0500 (CDT)
+[debug] [2018-06-14T00:11:43.957Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: functions folder uploaded successfully
+[debug] [2018-06-14T00:11:43.960Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/msnp-fdd0e/locations/us-central1/functions  
+  
+ Wed Jun 13 2018 19:11:43 GMT-0500 (CDT)
+[debug] [2018-06-14T00:11:44.198Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:11:44.203Z] > [functions] filtering triggers to: [
+  "fcmSend"
+]
+[info] i  functions: current functions in project: fcmSend
+[info] i  functions: uploading functions in project: fcmSend
+[info] i  functions: updating function fcmSend...
+[debug] [2018-06-14T00:11:44.214Z] Trigger is:  {"eventTrigger":{"resource":"projects/_/instances/msnp-fdd0e/refs/messages/{userId}/{messageId}","eventType":"providers/google.firebase.database/eventTypes/ref.create"}}
+[debug] [2018-06-14T00:11:44.217Z] >>> HTTP REQUEST PATCH https://cloudfunctions.googleapis.com/v1/projects/msnp-fdd0e/locations/us-central1/functions/fcmSend 
+query params: {"updateMask":"sourceUploadUrl,name,labels,eventTrigger.resource,eventTrigger.eventType"} 
+ { sourceUploadUrl: 'https://storage.googleapis.com/gcf-upload-us-central1-586dbcdc-dfb8-4e8b-8f68-b3b73259b107/3f74c564-1f33-41c3-b3d2-8ae077b3cedd.zip?GoogleAccessId=service-368905821941@gcf-admin-robot.iam.gserviceaccount.com&Expires=1528936903&Signature=g9tfLl3qkQEyCDS3EhpTilSPwLYpKg6VJzsi%2B3kP%2B%2F%2BxBYPuD9m%2BfMTYBiAe7%2Fo5nnWxtjObHu2bLkKpIW6dAObmoFVKcjUbA7m%2FsoI8PPv9%2BWtSfQboyzIkfozIz%2BODT9vwmJbxiasgaqpf3YtRbzXPnx7N1ztL%2FIFUmr2rtfQrLbNMGT3V7sEWeubWd2q%2B31L1MGhazuV9jOcGWi2ove5n1mdxyf14%2FRxc2HkGcOIgk2i6dOhmPkuu00zeyeV5vikDJ4ZHCF%2BmPVZ5f8HqQ0B1QuK7Yqq7rxc6oYfjWOI6Sa8IHmsZ%2BpxvALTkPMshXk7mD59A3rJAkgIoJGM1zQ%3D%3D',
+  name: 'projects/msnp-fdd0e/locations/us-central1/functions/fcmSend',
+  labels: { 'deployment-tool': 'cli-firebase' },
+  eventTrigger: 
+   { resource: 'projects/_/instances/msnp-fdd0e/refs/messages/{userId}/{messageId}',
+     eventType: 'providers/google.firebase.database/eventTypes/ref.create' } } 
+ Wed Jun 13 2018 19:11:44 GMT-0500 (CDT)
+[debug] [2018-06-14T00:11:44.546Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:11:44.551Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kLzJzT251ZVpRcUg0  
+  
+ Wed Jun 13 2018 19:11:44 GMT-0500 (CDT)
+[debug] [2018-06-14T00:11:44.772Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:11:46.778Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kLzJzT251ZVpRcUg0  
+  
+ Wed Jun 13 2018 19:11:46 GMT-0500 (CDT)
+[debug] [2018-06-14T00:11:46.959Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:11:48.965Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kLzJzT251ZVpRcUg0  
+  
+ Wed Jun 13 2018 19:11:48 GMT-0500 (CDT)
+[debug] [2018-06-14T00:11:49.187Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:11:51.188Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kLzJzT251ZVpRcUg0  
+  
+ Wed Jun 13 2018 19:11:51 GMT-0500 (CDT)
+[debug] [2018-06-14T00:11:51.435Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:11:53.440Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kLzJzT251ZVpRcUg0  
+  
+ Wed Jun 13 2018 19:11:53 GMT-0500 (CDT)
+[debug] [2018-06-14T00:11:53.666Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:11:55.670Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kLzJzT251ZVpRcUg0  
+  
+ Wed Jun 13 2018 19:11:55 GMT-0500 (CDT)
+[debug] [2018-06-14T00:11:55.887Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:11:57.889Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kLzJzT251ZVpRcUg0  
+  
+ Wed Jun 13 2018 19:11:57 GMT-0500 (CDT)
+[debug] [2018-06-14T00:11:58.154Z] <<< HTTP RESPONSE 200
+[info] ✔  functions[fcmSend]: Successful update operation. 
+[info] 
+[info] ✔  Deploy complete!
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/msnp-fdd0e/overview
+[debug] [2018-06-14T00:18:49.440Z] ----------------------------------------------------------------------
+[debug] [2018-06-14T00:18:49.450Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy --only functions:fcmSend --debug
+[debug] [2018-06-14T00:18:49.452Z] CLI Version:   3.17.7
+[debug] [2018-06-14T00:18:49.452Z] Platform:      darwin
+[debug] [2018-06-14T00:18:49.452Z] Node Version:  v9.9.0
+[debug] [2018-06-14T00:18:49.454Z] Time:          Wed Jun 13 2018 19:18:49 GMT-0500 (CDT)
+[debug] [2018-06-14T00:18:49.454Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-06-14T00:18:49.486Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-06-14T00:18:49.487Z] > authorizing via signed-in user
+[debug] [2018-06-14T00:18:49.492Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/msnp-fdd0e  
+  
+ Wed Jun 13 2018 19:18:49 GMT-0500 (CDT)
+[debug] [2018-06-14T00:18:50.011Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:18:50.014Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/msnp-fdd0e/tokens  
+  
+ Wed Jun 13 2018 19:18:50 GMT-0500 (CDT)
+[debug] [2018-06-14T00:18:51.016Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'msnp-fdd0e'...
+[info] 
+[info] i  deploying functions
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] ✔  functions: Finished running predeploy script.
+[debug] [2018-06-14T00:18:54.344Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase serve --only functions",
+    "shell": "firebase experimental:functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "firebase-admin": "~5.10.0",
+    "firebase-functions": "^0.9.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.12.0",
+    "eslint-plugin-promise": "^3.6.0"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2018-06-14T00:18:54.351Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/msnp-fdd0e?view=CONSUMER_VIEW  
+  
+ Wed Jun 13 2018 19:18:54 GMT-0500 (CDT)
+[debug] [2018-06-14T00:18:54.353Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/msnp-fdd0e?view=CONSUMER_VIEW  
+  
+ Wed Jun 13 2018 19:18:54 GMT-0500 (CDT)
+[debug] [2018-06-14T00:18:54.932Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:18:54.993Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: all necessary APIs are enabled
+[debug] [2018-06-14T00:18:54.995Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/msnp-fdd0e  
+  
+ Wed Jun 13 2018 19:18:54 GMT-0500 (CDT)
+[debug] [2018-06-14T00:18:55.282Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:18:55.284Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/368905821941:getServerAppConfig  
+  
+ Wed Jun 13 2018 19:18:55 GMT-0500 (CDT)
+[debug] [2018-06-14T00:18:55.719Z] <<< HTTP RESPONSE 200
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2018-06-14T00:18:55.723Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/msnp-fdd0e/configs  
+  
+ Wed Jun 13 2018 19:18:55 GMT-0500 (CDT)
+[debug] [2018-06-14T00:18:55.917Z] <<< HTTP RESPONSE 200
+[info] i  functions: packaged functions (49.84 KB) for uploading
+[debug] [2018-06-14T00:18:56.729Z] >>> HTTP REQUEST POST https://cloudfunctions.googleapis.com/v1/projects/msnp-fdd0e/locations/us-central1/functions:generateUploadUrl  
+  
+ Wed Jun 13 2018 19:18:56 GMT-0500 (CDT)
+[debug] [2018-06-14T00:18:57.056Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:18:57.057Z] >>> HTTP REQUEST PUT https://storage.googleapis.com/gcf-upload-us-central1-586dbcdc-dfb8-4e8b-8f68-b3b73259b107/b754ae6b-acf9-49c7-8eba-e218c419f613.zip?GoogleAccessId=service-368905821941@gcf-admin-robot.iam.gserviceaccount.com&Expires=1528937337&Signature=e%2Fzqc7WaJ2sjwM8%2BtkfuGfbB9Y0QeBDMG8xKNau3thg%2FtxuffNwux5SGS1Vnr7KB0pXfUkxI%2BTTnaeQlozTbSGDoiIg%2FS7N%2F%2FdfwTULBY5CI9vQtawsLfkth9uU5Vv4gJ7qwPccBsPo5Ulc6JCBf8W%2BV7e3EYX9DqL%2BNc%2F9Ax6jM5b3dEc5LTrqef%2BCULNIhEomOwQEf54e48YiiBzgp1T9a6N2P0%2FGwytVi8EJSKsL2z6MG23QI1V7Ths30%2FJtOxJJHvhxS37Wq2dIPP9%2FDltGzsYTmGnavF0e27K5qGdHbkBw7h4QilKsWvDSmnlqLHFNDtGw%2BTtIO3xzuiR7EXw%3D%3D  
+ ReadStream {
+  _readableState: 
+   ReadableState {
+     objectMode: false,
+     highWaterMark: 65536,
+     buffer: BufferList { head: [Object], tail: [Object], length: 1 },
+     length: 51032,
+     pipes: null,
+     pipesCount: 0,
+     flowing: null,
+     ended: true,
+     endEmitted: false,
+     reading: false,
+     sync: false,
+     needReadable: false,
+     emittedReadable: true,
+     readableListening: false,
+     resumeScheduled: false,
+     destroyed: false,
+     defaultEncoding: 'utf8',
+     awaitDrain: 0,
+     readingMore: false,
+     decoder: null,
+     encoding: null },
+  readable: true,
+  domain: null,
+  _events: { end: [Function] },
+  _eventsCount: 1,
+  _maxListeners: undefined,
+  path: '/var/folders/y4/m33wdg9s4wx12x4sfppn4z4r0000gn/T/firebase-functions-51010NV6CbzDxzZDg.zip',
+  fd: 20,
+  flags: 'r',
+  mode: 438,
+  start: undefined,
+  end: Infinity,
+  autoClose: true,
+  pos: undefined,
+  bytesRead: 51032,
+  closed: false } 
+ Wed Jun 13 2018 19:18:57 GMT-0500 (CDT)
+[debug] [2018-06-14T00:18:57.862Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: functions folder uploaded successfully
+[debug] [2018-06-14T00:18:57.867Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/msnp-fdd0e/locations/us-central1/functions  
+  
+ Wed Jun 13 2018 19:18:57 GMT-0500 (CDT)
+[debug] [2018-06-14T00:18:58.112Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:18:58.118Z] > [functions] filtering triggers to: [
+  "fcmSend"
+]
+[info] i  functions: current functions in project: fcmSend
+[info] i  functions: uploading functions in project: fcmSend
+[info] i  functions: updating function fcmSend...
+[debug] [2018-06-14T00:18:58.130Z] Trigger is:  {"eventTrigger":{"resource":"projects/_/instances/msnp-fdd0e/refs/messages/{userId}/{messageId}","eventType":"providers/google.firebase.database/eventTypes/ref.create"}}
+[debug] [2018-06-14T00:18:58.134Z] >>> HTTP REQUEST PATCH https://cloudfunctions.googleapis.com/v1/projects/msnp-fdd0e/locations/us-central1/functions/fcmSend 
+query params: {"updateMask":"sourceUploadUrl,name,labels,eventTrigger.resource,eventTrigger.eventType"} 
+ { sourceUploadUrl: 'https://storage.googleapis.com/gcf-upload-us-central1-586dbcdc-dfb8-4e8b-8f68-b3b73259b107/b754ae6b-acf9-49c7-8eba-e218c419f613.zip?GoogleAccessId=service-368905821941@gcf-admin-robot.iam.gserviceaccount.com&Expires=1528937337&Signature=e%2Fzqc7WaJ2sjwM8%2BtkfuGfbB9Y0QeBDMG8xKNau3thg%2FtxuffNwux5SGS1Vnr7KB0pXfUkxI%2BTTnaeQlozTbSGDoiIg%2FS7N%2F%2FdfwTULBY5CI9vQtawsLfkth9uU5Vv4gJ7qwPccBsPo5Ulc6JCBf8W%2BV7e3EYX9DqL%2BNc%2F9Ax6jM5b3dEc5LTrqef%2BCULNIhEomOwQEf54e48YiiBzgp1T9a6N2P0%2FGwytVi8EJSKsL2z6MG23QI1V7Ths30%2FJtOxJJHvhxS37Wq2dIPP9%2FDltGzsYTmGnavF0e27K5qGdHbkBw7h4QilKsWvDSmnlqLHFNDtGw%2BTtIO3xzuiR7EXw%3D%3D',
+  name: 'projects/msnp-fdd0e/locations/us-central1/functions/fcmSend',
+  labels: { 'deployment-tool': 'cli-firebase' },
+  eventTrigger: 
+   { resource: 'projects/_/instances/msnp-fdd0e/refs/messages/{userId}/{messageId}',
+     eventType: 'providers/google.firebase.database/eventTypes/ref.create' } } 
+ Wed Jun 13 2018 19:18:58 GMT-0500 (CDT)
+[debug] [2018-06-14T00:18:58.480Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:18:58.487Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kLy1vY3RVcWd6dTZN  
+  
+ Wed Jun 13 2018 19:18:58 GMT-0500 (CDT)
+[debug] [2018-06-14T00:18:58.728Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:19:00.734Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kLy1vY3RVcWd6dTZN  
+  
+ Wed Jun 13 2018 19:19:00 GMT-0500 (CDT)
+[debug] [2018-06-14T00:19:00.913Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:19:02.917Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kLy1vY3RVcWd6dTZN  
+  
+ Wed Jun 13 2018 19:19:02 GMT-0500 (CDT)
+[debug] [2018-06-14T00:19:03.156Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:19:05.161Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kLy1vY3RVcWd6dTZN  
+  
+ Wed Jun 13 2018 19:19:05 GMT-0500 (CDT)
+[debug] [2018-06-14T00:19:05.404Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:19:07.411Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kLy1vY3RVcWd6dTZN  
+  
+ Wed Jun 13 2018 19:19:07 GMT-0500 (CDT)
+[debug] [2018-06-14T00:19:07.649Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:19:09.655Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kLy1vY3RVcWd6dTZN  
+  
+ Wed Jun 13 2018 19:19:09 GMT-0500 (CDT)
+[debug] [2018-06-14T00:19:09.873Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:19:11.875Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kLy1vY3RVcWd6dTZN  
+  
+ Wed Jun 13 2018 19:19:11 GMT-0500 (CDT)
+[debug] [2018-06-14T00:19:12.172Z] <<< HTTP RESPONSE 200
+[info] ✔  functions[fcmSend]: Successful update operation. 
+[info] 
+[info] ✔  Deploy complete!
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/msnp-fdd0e/overview
+[debug] [2018-06-14T00:21:20.948Z] ----------------------------------------------------------------------
+[debug] [2018-06-14T00:21:20.957Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy --only functions:fcmSend --debug
+[debug] [2018-06-14T00:21:20.958Z] CLI Version:   3.17.7
+[debug] [2018-06-14T00:21:20.958Z] Platform:      darwin
+[debug] [2018-06-14T00:21:20.958Z] Node Version:  v9.9.0
+[debug] [2018-06-14T00:21:20.959Z] Time:          Wed Jun 13 2018 19:21:20 GMT-0500 (CDT)
+[debug] [2018-06-14T00:21:20.960Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-06-14T00:21:20.990Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-06-14T00:21:20.991Z] > authorizing via signed-in user
+[debug] [2018-06-14T00:21:20.995Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/msnp-fdd0e  
+  
+ Wed Jun 13 2018 19:21:20 GMT-0500 (CDT)
+[debug] [2018-06-14T00:21:21.451Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:21:21.453Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/msnp-fdd0e/tokens  
+  
+ Wed Jun 13 2018 19:21:21 GMT-0500 (CDT)
+[debug] [2018-06-14T00:21:21.980Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'msnp-fdd0e'...
+[info] 
+[info] i  deploying functions
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] ✔  functions: Finished running predeploy script.
+[debug] [2018-06-14T00:21:24.762Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase serve --only functions",
+    "shell": "firebase experimental:functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "firebase-admin": "~5.10.0",
+    "firebase-functions": "^0.9.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.12.0",
+    "eslint-plugin-promise": "^3.6.0"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2018-06-14T00:21:24.766Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/msnp-fdd0e?view=CONSUMER_VIEW  
+  
+ Wed Jun 13 2018 19:21:24 GMT-0500 (CDT)
+[debug] [2018-06-14T00:21:24.767Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/msnp-fdd0e?view=CONSUMER_VIEW  
+  
+ Wed Jun 13 2018 19:21:24 GMT-0500 (CDT)
+[debug] [2018-06-14T00:21:25.353Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:21:25.389Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: all necessary APIs are enabled
+[debug] [2018-06-14T00:21:25.391Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/msnp-fdd0e  
+  
+ Wed Jun 13 2018 19:21:25 GMT-0500 (CDT)
+[debug] [2018-06-14T00:21:25.666Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:21:25.667Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/368905821941:getServerAppConfig  
+  
+ Wed Jun 13 2018 19:21:25 GMT-0500 (CDT)
+[debug] [2018-06-14T00:21:25.987Z] <<< HTTP RESPONSE 200
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2018-06-14T00:21:25.991Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/msnp-fdd0e/configs  
+  
+ Wed Jun 13 2018 19:21:25 GMT-0500 (CDT)
+[debug] [2018-06-14T00:21:26.199Z] <<< HTTP RESPONSE 200
+[info] i  functions: packaged functions (49.84 KB) for uploading
+[debug] [2018-06-14T00:21:26.884Z] >>> HTTP REQUEST POST https://cloudfunctions.googleapis.com/v1/projects/msnp-fdd0e/locations/us-central1/functions:generateUploadUrl  
+  
+ Wed Jun 13 2018 19:21:26 GMT-0500 (CDT)
+[debug] [2018-06-14T00:21:27.122Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:21:27.124Z] >>> HTTP REQUEST PUT https://storage.googleapis.com/gcf-upload-us-central1-586dbcdc-dfb8-4e8b-8f68-b3b73259b107/4f521d5e-8ce3-4efb-a4b8-08d968de8413.zip?GoogleAccessId=service-368905821941@gcf-admin-robot.iam.gserviceaccount.com&Expires=1528937487&Signature=Q1jROB3fIgXgE5MOfBCvBP2%2BQM4O5yMoCe1dr7AwLG33f5RDCw%2FdsBuBIYsfKaDc40YAw1CXJqV6bTYCkHr270%2BpaX%2Frv8leCriLMcZbHLYWhkE9IdWj1uHP%2BD%2FEk84%2BY5M82V5kVw9bsrlOviHZ5j6EoteGQhvGuCnTc%2F2bWlGKvMBI2GpZkyHEXYPtThVe6LqWFbIijcx7iYRLCFgVj3%2BPeRDq4RxzLaA9196MG86T%2FJjqs3%2FYfAO8g%2Brk0etTcx2R%2BKqPP0KZCysywg92H4UtVj6KuYDp2M1xHV0FdFVHsUDhO6W5b5vteS0iLYYatALu3aZS0WiwUBCV4qMZeA%3D%3D  
+ ReadStream {
+  _readableState: 
+   ReadableState {
+     objectMode: false,
+     highWaterMark: 65536,
+     buffer: BufferList { head: [Object], tail: [Object], length: 1 },
+     length: 51035,
+     pipes: null,
+     pipesCount: 0,
+     flowing: null,
+     ended: true,
+     endEmitted: false,
+     reading: false,
+     sync: false,
+     needReadable: false,
+     emittedReadable: true,
+     readableListening: false,
+     resumeScheduled: false,
+     destroyed: false,
+     defaultEncoding: 'utf8',
+     awaitDrain: 0,
+     readingMore: false,
+     decoder: null,
+     encoding: null },
+  readable: true,
+  domain: null,
+  _events: { end: [Function] },
+  _eventsCount: 1,
+  _maxListeners: undefined,
+  path: '/var/folders/y4/m33wdg9s4wx12x4sfppn4z4r0000gn/T/firebase-functions-510321Y3LXF01eONv.zip',
+  fd: 20,
+  flags: 'r',
+  mode: 438,
+  start: undefined,
+  end: Infinity,
+  autoClose: true,
+  pos: undefined,
+  bytesRead: 51035,
+  closed: false } 
+ Wed Jun 13 2018 19:21:27 GMT-0500 (CDT)
+[debug] [2018-06-14T00:21:27.944Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: functions folder uploaded successfully
+[debug] [2018-06-14T00:21:27.948Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/msnp-fdd0e/locations/us-central1/functions  
+  
+ Wed Jun 13 2018 19:21:27 GMT-0500 (CDT)
+[debug] [2018-06-14T00:21:28.257Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:21:28.263Z] > [functions] filtering triggers to: [
+  "fcmSend"
+]
+[info] i  functions: current functions in project: fcmSend
+[info] i  functions: uploading functions in project: fcmSend
+[info] i  functions: updating function fcmSend...
+[debug] [2018-06-14T00:21:28.276Z] Trigger is:  {"eventTrigger":{"resource":"projects/_/instances/msnp-fdd0e/refs/messages/{userId}/{messageId}","eventType":"providers/google.firebase.database/eventTypes/ref.create"}}
+[debug] [2018-06-14T00:21:28.279Z] >>> HTTP REQUEST PATCH https://cloudfunctions.googleapis.com/v1/projects/msnp-fdd0e/locations/us-central1/functions/fcmSend 
+query params: {"updateMask":"sourceUploadUrl,name,labels,eventTrigger.resource,eventTrigger.eventType"} 
+ { sourceUploadUrl: 'https://storage.googleapis.com/gcf-upload-us-central1-586dbcdc-dfb8-4e8b-8f68-b3b73259b107/4f521d5e-8ce3-4efb-a4b8-08d968de8413.zip?GoogleAccessId=service-368905821941@gcf-admin-robot.iam.gserviceaccount.com&Expires=1528937487&Signature=Q1jROB3fIgXgE5MOfBCvBP2%2BQM4O5yMoCe1dr7AwLG33f5RDCw%2FdsBuBIYsfKaDc40YAw1CXJqV6bTYCkHr270%2BpaX%2Frv8leCriLMcZbHLYWhkE9IdWj1uHP%2BD%2FEk84%2BY5M82V5kVw9bsrlOviHZ5j6EoteGQhvGuCnTc%2F2bWlGKvMBI2GpZkyHEXYPtThVe6LqWFbIijcx7iYRLCFgVj3%2BPeRDq4RxzLaA9196MG86T%2FJjqs3%2FYfAO8g%2Brk0etTcx2R%2BKqPP0KZCysywg92H4UtVj6KuYDp2M1xHV0FdFVHsUDhO6W5b5vteS0iLYYatALu3aZS0WiwUBCV4qMZeA%3D%3D',
+  name: 'projects/msnp-fdd0e/locations/us-central1/functions/fcmSend',
+  labels: { 'deployment-tool': 'cli-firebase' },
+  eventTrigger: 
+   { resource: 'projects/_/instances/msnp-fdd0e/refs/messages/{userId}/{messageId}',
+     eventType: 'providers/google.firebase.database/eventTypes/ref.create' } } 
+ Wed Jun 13 2018 19:21:28 GMT-0500 (CDT)
+[debug] [2018-06-14T00:21:28.630Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:21:28.635Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL0NHc25uRzFYaHVn  
+  
+ Wed Jun 13 2018 19:21:28 GMT-0500 (CDT)
+[debug] [2018-06-14T00:21:28.810Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:21:30.814Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL0NHc25uRzFYaHVn  
+  
+ Wed Jun 13 2018 19:21:30 GMT-0500 (CDT)
+[debug] [2018-06-14T00:21:31.055Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:21:33.062Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL0NHc25uRzFYaHVn  
+  
+ Wed Jun 13 2018 19:21:33 GMT-0500 (CDT)
+[debug] [2018-06-14T00:21:33.301Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:21:35.305Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL0NHc25uRzFYaHVn  
+  
+ Wed Jun 13 2018 19:21:35 GMT-0500 (CDT)
+[debug] [2018-06-14T00:21:35.542Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:21:37.544Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL0NHc25uRzFYaHVn  
+  
+ Wed Jun 13 2018 19:21:37 GMT-0500 (CDT)
+[debug] [2018-06-14T00:21:37.737Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:21:39.742Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL0NHc25uRzFYaHVn  
+  
+ Wed Jun 13 2018 19:21:39 GMT-0500 (CDT)
+[debug] [2018-06-14T00:21:39.911Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:21:41.916Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL0NHc25uRzFYaHVn  
+  
+ Wed Jun 13 2018 19:21:41 GMT-0500 (CDT)
+[debug] [2018-06-14T00:21:42.181Z] <<< HTTP RESPONSE 200
+[info] ✔  functions[fcmSend]: Successful update operation. 
+[info] 
+[info] ✔  Deploy complete!
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/msnp-fdd0e/overview
+[debug] [2018-06-14T00:24:10.311Z] ----------------------------------------------------------------------
+[debug] [2018-06-14T00:24:10.320Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy --only functions:fcmSend --debug
+[debug] [2018-06-14T00:24:10.321Z] CLI Version:   3.17.7
+[debug] [2018-06-14T00:24:10.321Z] Platform:      darwin
+[debug] [2018-06-14T00:24:10.321Z] Node Version:  v9.9.0
+[debug] [2018-06-14T00:24:10.323Z] Time:          Wed Jun 13 2018 19:24:10 GMT-0500 (CDT)
+[debug] [2018-06-14T00:24:10.323Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-06-14T00:24:10.351Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-06-14T00:24:10.352Z] > authorizing via signed-in user
+[debug] [2018-06-14T00:24:10.357Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/msnp-fdd0e  
+  
+ Wed Jun 13 2018 19:24:10 GMT-0500 (CDT)
+[debug] [2018-06-14T00:24:10.818Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:24:10.820Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/msnp-fdd0e/tokens  
+  
+ Wed Jun 13 2018 19:24:10 GMT-0500 (CDT)
+[debug] [2018-06-14T00:24:11.210Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'msnp-fdd0e'...
+[info] 
+[info] i  deploying functions
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] ✔  functions: Finished running predeploy script.
+[debug] [2018-06-14T00:24:13.680Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase serve --only functions",
+    "shell": "firebase experimental:functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "firebase-admin": "~5.10.0",
+    "firebase-functions": "^0.9.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.12.0",
+    "eslint-plugin-promise": "^3.6.0"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2018-06-14T00:24:13.684Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/msnp-fdd0e?view=CONSUMER_VIEW  
+  
+ Wed Jun 13 2018 19:24:13 GMT-0500 (CDT)
+[debug] [2018-06-14T00:24:13.686Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/msnp-fdd0e?view=CONSUMER_VIEW  
+  
+ Wed Jun 13 2018 19:24:13 GMT-0500 (CDT)
+[debug] [2018-06-14T00:24:14.240Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:24:14.263Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: all necessary APIs are enabled
+[debug] [2018-06-14T00:24:14.265Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/msnp-fdd0e  
+  
+ Wed Jun 13 2018 19:24:14 GMT-0500 (CDT)
+[debug] [2018-06-14T00:24:14.587Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:24:14.588Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/368905821941:getServerAppConfig  
+  
+ Wed Jun 13 2018 19:24:14 GMT-0500 (CDT)
+[debug] [2018-06-14T00:24:14.890Z] <<< HTTP RESPONSE 200
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2018-06-14T00:24:14.893Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/msnp-fdd0e/configs  
+  
+ Wed Jun 13 2018 19:24:14 GMT-0500 (CDT)
+[debug] [2018-06-14T00:24:15.136Z] <<< HTTP RESPONSE 200
+[info] i  functions: packaged functions (49.84 KB) for uploading
+[debug] [2018-06-14T00:24:16.010Z] >>> HTTP REQUEST POST https://cloudfunctions.googleapis.com/v1/projects/msnp-fdd0e/locations/us-central1/functions:generateUploadUrl  
+  
+ Wed Jun 13 2018 19:24:16 GMT-0500 (CDT)
+[debug] [2018-06-14T00:24:16.359Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:24:16.361Z] >>> HTTP REQUEST PUT https://storage.googleapis.com/gcf-upload-us-central1-586dbcdc-dfb8-4e8b-8f68-b3b73259b107/69064c54-ce64-40a2-8921-33084c797846.zip?GoogleAccessId=service-368905821941@gcf-admin-robot.iam.gserviceaccount.com&Expires=1528937656&Signature=xPm5neFCcD4D6o0u3nBXM3h5iBiPigq4%2FVbBJ282GFTACb%2Bfg%2BK8SzkxLbtgxko9FJEOL8zaO9TW2QkHqtKHm0IvifMu7nY1VIIQx0KFKnjSipX05RuzFFgZ%2BkvVVrq3kqhcEgE31YKgZFVLUtWLXhVl2WYVZCgpGv46fkAEFfa5HXwtvbqfygjS5G0VjvVHLF1YdgwMEw8xi%2BGGaK5IwVvAGSiXr6MiNNbob97TP6cw8v34cSzaHUAM9B6yj0xXGlP0SnGRmViwHK0RfjfTgJGTRBNsgTUPRGUkOvzgf%2Fw1nI8NVgdZVpr0EIJcZsYvgUfKeMBhnQJ%2BcrcZUYxcbQ%3D%3D  
+ ReadStream {
+  _readableState: 
+   ReadableState {
+     objectMode: false,
+     highWaterMark: 65536,
+     buffer: BufferList { head: [Object], tail: [Object], length: 1 },
+     length: 51034,
+     pipes: null,
+     pipesCount: 0,
+     flowing: null,
+     ended: true,
+     endEmitted: false,
+     reading: false,
+     sync: false,
+     needReadable: false,
+     emittedReadable: true,
+     readableListening: false,
+     resumeScheduled: false,
+     destroyed: false,
+     defaultEncoding: 'utf8',
+     awaitDrain: 0,
+     readingMore: false,
+     decoder: null,
+     encoding: null },
+  readable: true,
+  domain: null,
+  _events: { end: [Function] },
+  _eventsCount: 1,
+  _maxListeners: undefined,
+  path: '/var/folders/y4/m33wdg9s4wx12x4sfppn4z4r0000gn/T/firebase-functions-51076XukGD4ndXtnC.zip',
+  fd: 19,
+  flags: 'r',
+  mode: 438,
+  start: undefined,
+  end: Infinity,
+  autoClose: true,
+  pos: undefined,
+  bytesRead: 51034,
+  closed: false } 
+ Wed Jun 13 2018 19:24:16 GMT-0500 (CDT)
+[debug] [2018-06-14T00:24:17.157Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: functions folder uploaded successfully
+[debug] [2018-06-14T00:24:17.164Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/msnp-fdd0e/locations/us-central1/functions  
+  
+ Wed Jun 13 2018 19:24:17 GMT-0500 (CDT)
+[debug] [2018-06-14T00:24:17.532Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:24:17.539Z] > [functions] filtering triggers to: [
+  "fcmSend"
+]
+[info] i  functions: current functions in project: fcmSend
+[info] i  functions: uploading functions in project: fcmSend
+[info] i  functions: updating function fcmSend...
+[debug] [2018-06-14T00:24:17.553Z] Trigger is:  {"eventTrigger":{"resource":"projects/_/instances/msnp-fdd0e/refs/messages/{userId}/{messageId}","eventType":"providers/google.firebase.database/eventTypes/ref.create"}}
+[debug] [2018-06-14T00:24:17.557Z] >>> HTTP REQUEST PATCH https://cloudfunctions.googleapis.com/v1/projects/msnp-fdd0e/locations/us-central1/functions/fcmSend 
+query params: {"updateMask":"sourceUploadUrl,name,labels,eventTrigger.resource,eventTrigger.eventType"} 
+ { sourceUploadUrl: 'https://storage.googleapis.com/gcf-upload-us-central1-586dbcdc-dfb8-4e8b-8f68-b3b73259b107/69064c54-ce64-40a2-8921-33084c797846.zip?GoogleAccessId=service-368905821941@gcf-admin-robot.iam.gserviceaccount.com&Expires=1528937656&Signature=xPm5neFCcD4D6o0u3nBXM3h5iBiPigq4%2FVbBJ282GFTACb%2Bfg%2BK8SzkxLbtgxko9FJEOL8zaO9TW2QkHqtKHm0IvifMu7nY1VIIQx0KFKnjSipX05RuzFFgZ%2BkvVVrq3kqhcEgE31YKgZFVLUtWLXhVl2WYVZCgpGv46fkAEFfa5HXwtvbqfygjS5G0VjvVHLF1YdgwMEw8xi%2BGGaK5IwVvAGSiXr6MiNNbob97TP6cw8v34cSzaHUAM9B6yj0xXGlP0SnGRmViwHK0RfjfTgJGTRBNsgTUPRGUkOvzgf%2Fw1nI8NVgdZVpr0EIJcZsYvgUfKeMBhnQJ%2BcrcZUYxcbQ%3D%3D',
+  name: 'projects/msnp-fdd0e/locations/us-central1/functions/fcmSend',
+  labels: { 'deployment-tool': 'cli-firebase' },
+  eventTrigger: 
+   { resource: 'projects/_/instances/msnp-fdd0e/refs/messages/{userId}/{messageId}',
+     eventType: 'providers/google.firebase.database/eventTypes/ref.create' } } 
+ Wed Jun 13 2018 19:24:17 GMT-0500 (CDT)
+[debug] [2018-06-14T00:24:18.036Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:24:18.044Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL1ZhaTRQaFVHZDU0  
+  
+ Wed Jun 13 2018 19:24:18 GMT-0500 (CDT)
+[debug] [2018-06-14T00:24:18.289Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:24:20.293Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL1ZhaTRQaFVHZDU0  
+  
+ Wed Jun 13 2018 19:24:20 GMT-0500 (CDT)
+[debug] [2018-06-14T00:24:20.557Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:24:22.559Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL1ZhaTRQaFVHZDU0  
+  
+ Wed Jun 13 2018 19:24:22 GMT-0500 (CDT)
+[debug] [2018-06-14T00:24:22.805Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:24:24.806Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL1ZhaTRQaFVHZDU0  
+  
+ Wed Jun 13 2018 19:24:24 GMT-0500 (CDT)
+[debug] [2018-06-14T00:24:25.042Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:24:27.047Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL1ZhaTRQaFVHZDU0  
+  
+ Wed Jun 13 2018 19:24:27 GMT-0500 (CDT)
+[debug] [2018-06-14T00:24:27.387Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:24:29.389Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL1ZhaTRQaFVHZDU0  
+  
+ Wed Jun 13 2018 19:24:29 GMT-0500 (CDT)
+[debug] [2018-06-14T00:24:29.651Z] <<< HTTP RESPONSE 200
+[info] ✔  functions[fcmSend]: Successful update operation. 
+[info] 
+[info] ✔  Deploy complete!
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/msnp-fdd0e/overview
+[debug] [2018-06-14T00:26:55.424Z] ----------------------------------------------------------------------
+[debug] [2018-06-14T00:26:55.435Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy --only functions:fcmSend --debug
+[debug] [2018-06-14T00:26:55.436Z] CLI Version:   3.17.7
+[debug] [2018-06-14T00:26:55.436Z] Platform:      darwin
+[debug] [2018-06-14T00:26:55.436Z] Node Version:  v9.9.0
+[debug] [2018-06-14T00:26:55.438Z] Time:          Wed Jun 13 2018 19:26:55 GMT-0500 (CDT)
+[debug] [2018-06-14T00:26:55.438Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-06-14T00:26:55.473Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-06-14T00:26:55.474Z] > authorizing via signed-in user
+[debug] [2018-06-14T00:26:55.479Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/msnp-fdd0e  
+  
+ Wed Jun 13 2018 19:26:55 GMT-0500 (CDT)
+[debug] [2018-06-14T00:26:55.985Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:26:55.988Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/msnp-fdd0e/tokens  
+  
+ Wed Jun 13 2018 19:26:55 GMT-0500 (CDT)
+[debug] [2018-06-14T00:26:56.497Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'msnp-fdd0e'...
+[info] 
+[info] i  deploying functions
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] ✔  functions: Finished running predeploy script.
+[debug] [2018-06-14T00:26:59.537Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase serve --only functions",
+    "shell": "firebase experimental:functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "firebase-admin": "~5.10.0",
+    "firebase-functions": "^0.9.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.12.0",
+    "eslint-plugin-promise": "^3.6.0"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2018-06-14T00:26:59.542Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/msnp-fdd0e?view=CONSUMER_VIEW  
+  
+ Wed Jun 13 2018 19:26:59 GMT-0500 (CDT)
+[debug] [2018-06-14T00:26:59.543Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/msnp-fdd0e?view=CONSUMER_VIEW  
+  
+ Wed Jun 13 2018 19:26:59 GMT-0500 (CDT)
+[debug] [2018-06-14T00:27:00.125Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:27:00.131Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: all necessary APIs are enabled
+[debug] [2018-06-14T00:27:00.133Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/msnp-fdd0e  
+  
+ Wed Jun 13 2018 19:27:00 GMT-0500 (CDT)
+[debug] [2018-06-14T00:27:00.438Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:27:00.439Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/368905821941:getServerAppConfig  
+  
+ Wed Jun 13 2018 19:27:00 GMT-0500 (CDT)
+[debug] [2018-06-14T00:27:00.815Z] <<< HTTP RESPONSE 200
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2018-06-14T00:27:00.819Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/msnp-fdd0e/configs  
+  
+ Wed Jun 13 2018 19:27:00 GMT-0500 (CDT)
+[debug] [2018-06-14T00:27:01.038Z] <<< HTTP RESPONSE 200
+[info] i  functions: packaged functions (49.84 KB) for uploading
+[debug] [2018-06-14T00:27:01.770Z] >>> HTTP REQUEST POST https://cloudfunctions.googleapis.com/v1/projects/msnp-fdd0e/locations/us-central1/functions:generateUploadUrl  
+  
+ Wed Jun 13 2018 19:27:01 GMT-0500 (CDT)
+[debug] [2018-06-14T00:27:02.079Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:27:02.081Z] >>> HTTP REQUEST PUT https://storage.googleapis.com/gcf-upload-us-central1-586dbcdc-dfb8-4e8b-8f68-b3b73259b107/2413c3de-2c19-4147-88c5-8d576e9c33b0.zip?GoogleAccessId=service-368905821941@gcf-admin-robot.iam.gserviceaccount.com&Expires=1528937822&Signature=qgw1uEtBF7Iwj2E0jBAXJBtFDBj5zs4htfHIM8ORPISiT74zqDGff6U7zH6UYUE%2BBdwBeds0SHEGRV0INFl6J6c5tlVqGq2DGcMcyhc7rIQbyCRaG9YD0MGzR3XCFQ1iToCCxeS3dURXQO%2BiQZKGbQIzjIznAvqhYUNSza1In4h186JKOT%2BjYY7uvlbAHyNqJcspURzM%2BzxstXDvWAGb5xH1wmZ9NHt%2Ba8Bqf5p63sLdT66lIkgcAN1RlsrYz0WqasaIWWPSJrb11o6mhfpL1v64QdLKisX4TpwOzp9EjB71p%2BgN6HbegseEp8peTE6PvRnXc3b4TUrWC9MUlA4mNQ%3D%3D  
+ ReadStream {
+  _readableState: 
+   ReadableState {
+     objectMode: false,
+     highWaterMark: 65536,
+     buffer: BufferList { head: [Object], tail: [Object], length: 1 },
+     length: 51034,
+     pipes: null,
+     pipesCount: 0,
+     flowing: null,
+     ended: true,
+     endEmitted: false,
+     reading: false,
+     sync: false,
+     needReadable: false,
+     emittedReadable: true,
+     readableListening: false,
+     resumeScheduled: false,
+     destroyed: false,
+     defaultEncoding: 'utf8',
+     awaitDrain: 0,
+     readingMore: false,
+     decoder: null,
+     encoding: null },
+  readable: true,
+  domain: null,
+  _events: { end: [Function] },
+  _eventsCount: 1,
+  _maxListeners: undefined,
+  path: '/var/folders/y4/m33wdg9s4wx12x4sfppn4z4r0000gn/T/firebase-functions-51115dAOCIhXJlDSC.zip',
+  fd: 20,
+  flags: 'r',
+  mode: 438,
+  start: undefined,
+  end: Infinity,
+  autoClose: true,
+  pos: undefined,
+  bytesRead: 51034,
+  closed: false } 
+ Wed Jun 13 2018 19:27:02 GMT-0500 (CDT)
+[debug] [2018-06-14T00:27:02.914Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: functions folder uploaded successfully
+[debug] [2018-06-14T00:27:02.918Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/msnp-fdd0e/locations/us-central1/functions  
+  
+ Wed Jun 13 2018 19:27:02 GMT-0500 (CDT)
+[debug] [2018-06-14T00:27:03.225Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:27:03.230Z] > [functions] filtering triggers to: [
+  "fcmSend"
+]
+[info] i  functions: current functions in project: fcmSend
+[info] i  functions: uploading functions in project: fcmSend
+[info] i  functions: updating function fcmSend...
+[debug] [2018-06-14T00:27:03.242Z] Trigger is:  {"eventTrigger":{"resource":"projects/_/instances/msnp-fdd0e/refs/messages/{userId}/{messageId}","eventType":"providers/google.firebase.database/eventTypes/ref.create"}}
+[debug] [2018-06-14T00:27:03.246Z] >>> HTTP REQUEST PATCH https://cloudfunctions.googleapis.com/v1/projects/msnp-fdd0e/locations/us-central1/functions/fcmSend 
+query params: {"updateMask":"sourceUploadUrl,name,labels,eventTrigger.resource,eventTrigger.eventType"} 
+ { sourceUploadUrl: 'https://storage.googleapis.com/gcf-upload-us-central1-586dbcdc-dfb8-4e8b-8f68-b3b73259b107/2413c3de-2c19-4147-88c5-8d576e9c33b0.zip?GoogleAccessId=service-368905821941@gcf-admin-robot.iam.gserviceaccount.com&Expires=1528937822&Signature=qgw1uEtBF7Iwj2E0jBAXJBtFDBj5zs4htfHIM8ORPISiT74zqDGff6U7zH6UYUE%2BBdwBeds0SHEGRV0INFl6J6c5tlVqGq2DGcMcyhc7rIQbyCRaG9YD0MGzR3XCFQ1iToCCxeS3dURXQO%2BiQZKGbQIzjIznAvqhYUNSza1In4h186JKOT%2BjYY7uvlbAHyNqJcspURzM%2BzxstXDvWAGb5xH1wmZ9NHt%2Ba8Bqf5p63sLdT66lIkgcAN1RlsrYz0WqasaIWWPSJrb11o6mhfpL1v64QdLKisX4TpwOzp9EjB71p%2BgN6HbegseEp8peTE6PvRnXc3b4TUrWC9MUlA4mNQ%3D%3D',
+  name: 'projects/msnp-fdd0e/locations/us-central1/functions/fcmSend',
+  labels: { 'deployment-tool': 'cli-firebase' },
+  eventTrigger: 
+   { resource: 'projects/_/instances/msnp-fdd0e/refs/messages/{userId}/{messageId}',
+     eventType: 'providers/google.firebase.database/eventTypes/ref.create' } } 
+ Wed Jun 13 2018 19:27:03 GMT-0500 (CDT)
+[debug] [2018-06-14T00:27:03.834Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:27:03.840Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL3RCVDJSWlQ1LUJB  
+  
+ Wed Jun 13 2018 19:27:03 GMT-0500 (CDT)
+[debug] [2018-06-14T00:27:04.071Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:27:06.074Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL3RCVDJSWlQ1LUJB  
+  
+ Wed Jun 13 2018 19:27:06 GMT-0500 (CDT)
+[debug] [2018-06-14T00:27:06.321Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:27:08.326Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL3RCVDJSWlQ1LUJB  
+  
+ Wed Jun 13 2018 19:27:08 GMT-0500 (CDT)
+[debug] [2018-06-14T00:27:08.545Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:27:10.549Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL3RCVDJSWlQ1LUJB  
+  
+ Wed Jun 13 2018 19:27:10 GMT-0500 (CDT)
+[debug] [2018-06-14T00:27:10.726Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:27:12.729Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL3RCVDJSWlQ1LUJB  
+  
+ Wed Jun 13 2018 19:27:12 GMT-0500 (CDT)
+[debug] [2018-06-14T00:27:12.949Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:27:14.952Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL3RCVDJSWlQ1LUJB  
+  
+ Wed Jun 13 2018 19:27:14 GMT-0500 (CDT)
+[debug] [2018-06-14T00:27:15.184Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:27:17.190Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL3RCVDJSWlQ1LUJB  
+  
+ Wed Jun 13 2018 19:27:17 GMT-0500 (CDT)
+[debug] [2018-06-14T00:27:17.382Z] <<< HTTP RESPONSE 200
+[info] ✔  functions[fcmSend]: Successful update operation. 
+[info] 
+[info] ✔  Deploy complete!
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/msnp-fdd0e/overview
+[debug] [2018-06-14T00:30:55.852Z] ----------------------------------------------------------------------
+[debug] [2018-06-14T00:30:55.861Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy --only functions:fcmSend --debug
+[debug] [2018-06-14T00:30:55.862Z] CLI Version:   3.17.7
+[debug] [2018-06-14T00:30:55.862Z] Platform:      darwin
+[debug] [2018-06-14T00:30:55.862Z] Node Version:  v9.9.0
+[debug] [2018-06-14T00:30:55.864Z] Time:          Wed Jun 13 2018 19:30:55 GMT-0500 (CDT)
+[debug] [2018-06-14T00:30:55.865Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-06-14T00:30:55.897Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-06-14T00:30:55.898Z] > authorizing via signed-in user
+[debug] [2018-06-14T00:30:55.904Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/msnp-fdd0e  
+  
+ Wed Jun 13 2018 19:30:55 GMT-0500 (CDT)
+[debug] [2018-06-14T00:30:56.407Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:30:56.410Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/msnp-fdd0e/tokens  
+  
+ Wed Jun 13 2018 19:30:56 GMT-0500 (CDT)
+[debug] [2018-06-14T00:30:56.763Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'msnp-fdd0e'...
+[info] 
+[info] i  deploying functions
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] ✔  functions: Finished running predeploy script.
+[debug] [2018-06-14T00:30:59.773Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase serve --only functions",
+    "shell": "firebase experimental:functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "firebase-admin": "~5.10.0",
+    "firebase-functions": "^0.9.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.12.0",
+    "eslint-plugin-promise": "^3.6.0"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2018-06-14T00:30:59.777Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/msnp-fdd0e?view=CONSUMER_VIEW  
+  
+ Wed Jun 13 2018 19:30:59 GMT-0500 (CDT)
+[debug] [2018-06-14T00:30:59.778Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/msnp-fdd0e?view=CONSUMER_VIEW  
+  
+ Wed Jun 13 2018 19:30:59 GMT-0500 (CDT)
+[debug] [2018-06-14T00:31:00.270Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:31:00.344Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: all necessary APIs are enabled
+[debug] [2018-06-14T00:31:00.345Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/msnp-fdd0e  
+  
+ Wed Jun 13 2018 19:31:00 GMT-0500 (CDT)
+[debug] [2018-06-14T00:31:00.597Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:31:00.599Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/368905821941:getServerAppConfig  
+  
+ Wed Jun 13 2018 19:31:00 GMT-0500 (CDT)
+[debug] [2018-06-14T00:31:00.944Z] <<< HTTP RESPONSE 200
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2018-06-14T00:31:00.947Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/msnp-fdd0e/configs  
+  
+ Wed Jun 13 2018 19:31:00 GMT-0500 (CDT)
+[debug] [2018-06-14T00:31:01.347Z] <<< HTTP RESPONSE 200
+[info] i  functions: packaged functions (49.88 KB) for uploading
+[debug] [2018-06-14T00:31:01.984Z] >>> HTTP REQUEST POST https://cloudfunctions.googleapis.com/v1/projects/msnp-fdd0e/locations/us-central1/functions:generateUploadUrl  
+  
+ Wed Jun 13 2018 19:31:01 GMT-0500 (CDT)
+[debug] [2018-06-14T00:31:02.284Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:31:02.286Z] >>> HTTP REQUEST PUT https://storage.googleapis.com/gcf-upload-us-central1-586dbcdc-dfb8-4e8b-8f68-b3b73259b107/6201d6dd-39ac-4de5-8552-3cedbefa28a9.zip?GoogleAccessId=service-368905821941@gcf-admin-robot.iam.gserviceaccount.com&Expires=1528938062&Signature=abfuRrVcl2sAQh%2FJ8V5JA83Jz4h1zNeBQFz9zIXabv4HnL61%2FbZrWs4mGDJYINBbFZsks791tRn4LStgZs6TniKi3sUt4%2FqVUAQV%2BruzXkewpAnF0pMvnzdFGpg0kkQMN6lIqgI4NlHm530%2BTep%2BPuiVpAVL6jc1hJoKiHbHORhNcdx5Z%2FX1QxqgmMkabztuvFIeF9M%2FcClaMoOPGVLxhCOq3gpdsAkC6dtcHVn9Y0Abp%2BxlpnI6sDaIAt8G%2BJkAKhCaJkYKdZGg1x6McACO2s72LcaIgtsODKQjgHbyLxcmjWsjbbgeGr1QLEw2dOFrS1YFKAEjeA8IQk1ddGHBwg%3D%3D  
+ ReadStream {
+  _readableState: 
+   ReadableState {
+     objectMode: false,
+     highWaterMark: 65536,
+     buffer: BufferList { head: [Object], tail: [Object], length: 1 },
+     length: 51080,
+     pipes: null,
+     pipesCount: 0,
+     flowing: null,
+     ended: true,
+     endEmitted: false,
+     reading: false,
+     sync: false,
+     needReadable: false,
+     emittedReadable: true,
+     readableListening: false,
+     resumeScheduled: false,
+     destroyed: false,
+     defaultEncoding: 'utf8',
+     awaitDrain: 0,
+     readingMore: false,
+     decoder: null,
+     encoding: null },
+  readable: true,
+  domain: null,
+  _events: { end: [Function] },
+  _eventsCount: 1,
+  _maxListeners: undefined,
+  path: '/var/folders/y4/m33wdg9s4wx12x4sfppn4z4r0000gn/T/firebase-functions-511747FYWgNsa1Qfc.zip',
+  fd: 20,
+  flags: 'r',
+  mode: 438,
+  start: undefined,
+  end: Infinity,
+  autoClose: true,
+  pos: undefined,
+  bytesRead: 51080,
+  closed: false } 
+ Wed Jun 13 2018 19:31:02 GMT-0500 (CDT)
+[debug] [2018-06-14T00:31:02.800Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: functions folder uploaded successfully
+[debug] [2018-06-14T00:31:02.804Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/msnp-fdd0e/locations/us-central1/functions  
+  
+ Wed Jun 13 2018 19:31:02 GMT-0500 (CDT)
+[debug] [2018-06-14T00:31:03.089Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:31:03.095Z] > [functions] filtering triggers to: [
+  "fcmSend"
+]
+[info] i  functions: current functions in project: fcmSend
+[info] i  functions: uploading functions in project: fcmSend
+[info] i  functions: updating function fcmSend...
+[debug] [2018-06-14T00:31:03.106Z] Trigger is:  {"eventTrigger":{"resource":"projects/_/instances/msnp-fdd0e/refs/messages/{userId}/{messageId}","eventType":"providers/google.firebase.database/eventTypes/ref.create"}}
+[debug] [2018-06-14T00:31:03.110Z] >>> HTTP REQUEST PATCH https://cloudfunctions.googleapis.com/v1/projects/msnp-fdd0e/locations/us-central1/functions/fcmSend 
+query params: {"updateMask":"sourceUploadUrl,name,labels,eventTrigger.resource,eventTrigger.eventType"} 
+ { sourceUploadUrl: 'https://storage.googleapis.com/gcf-upload-us-central1-586dbcdc-dfb8-4e8b-8f68-b3b73259b107/6201d6dd-39ac-4de5-8552-3cedbefa28a9.zip?GoogleAccessId=service-368905821941@gcf-admin-robot.iam.gserviceaccount.com&Expires=1528938062&Signature=abfuRrVcl2sAQh%2FJ8V5JA83Jz4h1zNeBQFz9zIXabv4HnL61%2FbZrWs4mGDJYINBbFZsks791tRn4LStgZs6TniKi3sUt4%2FqVUAQV%2BruzXkewpAnF0pMvnzdFGpg0kkQMN6lIqgI4NlHm530%2BTep%2BPuiVpAVL6jc1hJoKiHbHORhNcdx5Z%2FX1QxqgmMkabztuvFIeF9M%2FcClaMoOPGVLxhCOq3gpdsAkC6dtcHVn9Y0Abp%2BxlpnI6sDaIAt8G%2BJkAKhCaJkYKdZGg1x6McACO2s72LcaIgtsODKQjgHbyLxcmjWsjbbgeGr1QLEw2dOFrS1YFKAEjeA8IQk1ddGHBwg%3D%3D',
+  name: 'projects/msnp-fdd0e/locations/us-central1/functions/fcmSend',
+  labels: { 'deployment-tool': 'cli-firebase' },
+  eventTrigger: 
+   { resource: 'projects/_/instances/msnp-fdd0e/refs/messages/{userId}/{messageId}',
+     eventType: 'providers/google.firebase.database/eventTypes/ref.create' } } 
+ Wed Jun 13 2018 19:31:03 GMT-0500 (CDT)
+[debug] [2018-06-14T00:31:03.379Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:31:03.384Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL21oUndDVFBCTDZJ  
+  
+ Wed Jun 13 2018 19:31:03 GMT-0500 (CDT)
+[debug] [2018-06-14T00:31:03.564Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:31:05.568Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL21oUndDVFBCTDZJ  
+  
+ Wed Jun 13 2018 19:31:05 GMT-0500 (CDT)
+[debug] [2018-06-14T00:31:05.827Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:31:07.831Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL21oUndDVFBCTDZJ  
+  
+ Wed Jun 13 2018 19:31:07 GMT-0500 (CDT)
+[debug] [2018-06-14T00:31:08.060Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:31:10.065Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL21oUndDVFBCTDZJ  
+  
+ Wed Jun 13 2018 19:31:10 GMT-0500 (CDT)
+[debug] [2018-06-14T00:31:10.298Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:31:12.304Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL21oUndDVFBCTDZJ  
+  
+ Wed Jun 13 2018 19:31:12 GMT-0500 (CDT)
+[debug] [2018-06-14T00:31:12.530Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:31:14.535Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL21oUndDVFBCTDZJ  
+  
+ Wed Jun 13 2018 19:31:14 GMT-0500 (CDT)
+[debug] [2018-06-14T00:31:14.765Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-14T00:31:16.767Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bXNucC1mZGQwZS91cy1jZW50cmFsMS9mY21TZW5kL21oUndDVFBCTDZJ  
+  
+ Wed Jun 13 2018 19:31:16 GMT-0500 (CDT)
+[debug] [2018-06-14T00:31:16.965Z] <<< HTTP RESPONSE 200
+[info] ✔  functions[fcmSend]: Successful update operation. 
+[info] 
+[info] ✔  Deploy complete!
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/msnp-fdd0e/overview
