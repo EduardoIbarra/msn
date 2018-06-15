@@ -230,6 +230,11 @@ img.icon {
   -webkit-box-shadow: 0px 15px 15px -4px rgba(0,0,0,0.24);
   -moz-box-shadow: 0px 15px 15px -4px rgba(0,0,0,0.24);
   box-shadow: 0px 15px 15px -4px rgba(0,0,0,0.24);
+  position: fixed;
+  width: 100%;
+  z-index: 9;
+  height: 56px;
+  top: 0px;
 }
 .branding {
   padding: 5px !important;
@@ -400,4 +405,13 @@ input[type="file"] {
   padding: 6px 12px;
   cursor: pointer;
   border: 1px solid #b5c6d0;
+}
+#generalContent {
+  margin-top: 56px;
+}
+.vh55 {
+  height: 55vh;
+}
+.pari0 {
+  padding-right: 0px;
 }

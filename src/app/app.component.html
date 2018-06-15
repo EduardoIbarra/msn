@@ -6,7 +6,6 @@
   <div class="item" routerLink="/settings">Configuración</div>
   <div class="item" routerLink="/about">Acerca De</div>
 </div>
-
 <div class="toasterContainer" *ngIf="shouldShowNotification && notification" routerLink="conversation/{{notification.data['gcm.notification.friend_uid']}}">
   <div class="toasterHeaderContainer">
     <img src="assets/img/logo_live_big_clean.png">
@@ -30,8 +29,9 @@
     </div>
   </div>
 </div>
-
-<router-outlet></router-outlet>
+<div id="generalContent">
+  <router-outlet></router-outlet>
+</div>
 <ng-template #request let-c="close" let-d="dismiss">
   <div class="modal-header">
     <h3>Agregar Amigo</h3>
