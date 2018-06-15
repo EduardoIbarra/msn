@@ -56,12 +56,7 @@ export class ConversationComponent implements OnInit {
               this.conversationService.updateMessage(this.ids.join('||'), m);
             }
           });
-          window.setTimeout(() => {
-            const objDiv = document.getElementById('messageArea');
-            if(objDiv) {
-              objDiv.scrollTop = objDiv.scrollHeight;
-            }
-          }, 1);
+          this.scrollToBottom();
         });
     });
   }
@@ -72,7 +67,17 @@ export class ConversationComponent implements OnInit {
       return this.me.nick;
     }
   }
-
+  scrollToBottom() {
+    window.setTimeout(() => {
+      const objDiv = document.getElementById('messageArea');
+      if(objDiv) {
+        objDiv.scrollTop = objDiv.scrollHeight;
+        window.setTimeout(() => {
+          objDiv.scrollTop = objDiv.scrollHeight;
+        }, 900);
+      }
+    }, 1);
+  }
   ngOnInit() {
   }
   doZumbido() {
@@ -132,6 +137,7 @@ export class ConversationComponent implements OnInit {
     this.currentPictureId = Date.now();
     const pictures = this.fbStorage.ref('pictures/' + this.currentPictureId + '.jpg').putString(this.uploadedPicture, 'data_url');
     pictures.then((result) => {
+      this.uploadedPicture = null;
       this.pictureUpload = this.fbStorage.ref('pictures/' + this.currentPictureId + '.jpg').getDownloadURL();
       this.pictureUpload.subscribe((p) => {
         const messageObject: any = {

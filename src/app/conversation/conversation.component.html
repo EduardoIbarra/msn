@@ -51,9 +51,11 @@
             <img src="assets/img/zumbido.png" class="tool">
           </div>
 
-          <input type="file" [(ngModel)]="uploadedPicture" (change)="changeListener($event)">
-          <a class="btn btn-primary btn-sm" (click)="uploadPicture()" accept="image/*">Upload</a>
-
+          <a class="btn btn-primary btn-sm marri10" *ngIf="uploadedPicture" (click)="uploadPicture()" accept="image/*">Enviar</a>
+          <label class="custom-file-upload">
+            <input type="file" [value]="uploadedPicture" (change)="changeListener($event)">
+            <fa name="image"></fa> Seleccionar Imagen
+          </label>
         </div>
       </div>
     </div>
