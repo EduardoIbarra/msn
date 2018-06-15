@@ -64,3 +64,9 @@
 span.friendName {
   font-size: 2em;
 }
+img.conversationPicture {
+  width: 300px;
+  margin: 10px 0;
+  padding: 10px;
+  border: 2px solid #ededed;
+}

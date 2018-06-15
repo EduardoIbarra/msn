@@ -27,6 +27,10 @@
               <li>{{m.content}}</li>
             </ul>
           </div>
+          <div *ngIf="m.type == 'picture'">
+            {{getUserNickById(m.sender)}} envía: <br />
+            <img src="{{m.content}}" alt="Foto enviada" class="conversationPicture">
+          </div>
           <div *ngIf="m.type == 'zumbido'">
             {{getUserNickById(m.sender)}} envió un zumbido <br />
           </div>
@@ -46,6 +50,10 @@
           <div class="item" (click)="sendZumbido()">
             <img src="assets/img/zumbido.png" class="tool">
           </div>
+
+          <input type="file" [(ngModel)]="uploadedPicture" (change)="changeListener($event)">
+          <a class="btn btn-primary btn-sm" (click)="uploadPicture()" accept="image/*">Upload</a>
+
         </div>
       </div>
     </div>
