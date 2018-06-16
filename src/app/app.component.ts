@@ -4,6 +4,7 @@ import { RequestService } from './services/request.service';
 import { DialogService } from 'ng2-bootstrap-modal';
 import { FriendRequestModalComponent } from './modals/friend-request/friend-request.modal';
 import { MessagingService } from './services/messaging.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +21,7 @@ export class AppComponent implements OnInit{
   shouldShowNotification = false;
   notification: any;
   constructor(private usersService: UserService,
+              private router: Router,
               private requestService: RequestService,
               private msgService: MessagingService,
               private dialogService: DialogService) {

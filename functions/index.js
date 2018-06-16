@@ -10,7 +10,7 @@ exports.fcmSend = functions.database
     console.log('******', userId);
     const payload = {
       notification: {
-        title: '¡Tienes un nuevo mensaje!',
+        title: message.friend_name + ' dice: ',
         body: message.message,
         icon: message.picture,
         type: message.type,

@@ -1,4 +1,4 @@
-<div id="conversationMenuContainer">
+<div id="conversationMenuContainer" *ngIf="router.url !== '/login'">
   <div class="item branding" routerLink="/home">
     <img src="assets/img/logo_live.png">
     MSN Alive!
@@ -29,7 +29,10 @@
     </div>
   </div>
 </div>
-<div id="generalContent">
+<div id="generalContent" *ngIf="router.url !== '/login'">
+  <router-outlet></router-outlet>
+</div>
+<div *ngIf="router.url === '/login'">
   <router-outlet></router-outlet>
 </div>
 <ng-template #request let-c="close" let-d="dismiss">
